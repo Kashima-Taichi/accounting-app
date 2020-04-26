@@ -1,0 +1,33 @@
+.id {
+    width: 70px;
+}
+
+.accName {
+    width: 200px;
+}
+
+.price {
+    width: 140px;
+}
+
+.journal {
+    width: 400px;
+}
+
+.year, .month, .day {
+    width: 120px;
+}
+
+/* Laravelのpaginateで出力されるデフォルトのulタグは”・”を出力するが、それを消すのが下記のソース */
+ul {
+    list-style: none;
+}
+
+.page-item {
+    font-size: 25px;
+}
+
+/* 下のCSSでLaravelのページネーションのスタイルを横並びにすることが出来る */
+.pagination li {
+    display: inline-block;
+}

@@ -1,0 +1,8 @@
+【keihi】
+rootのpsw
+laravelroot0305#
+
+【mysqlのpsw】
+Taitai827@mysql
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Taitai827@mysql';

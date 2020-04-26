@@ -1,0 +1,16 @@
+.price {
+    width: 200px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.journal {
+    width: 300px;
+    height: 60px;
+    font-size: 20px;
+}
+
+.account {
+    width: 200px;
+    font-size: 20px;
+}
