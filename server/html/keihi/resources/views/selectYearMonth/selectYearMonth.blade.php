@@ -6,14 +6,16 @@
     <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
     <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('/js/selectYearMonth.js') }}"></script>
-    <title>経費計上金額トップ10を見る</title>
+    <title>{{ $title }}</title>
 </head>
 <body>
     <div class="recform">
-    <h2>経費計上金額トップ10を見る</h2>
-    <form action="/costlist/toptencostslist" method="post">
+    <h2>{{ $h2 }}</h2>
+    <form action="{{ $action }}" method="post">
         @csrf
         @include('components.selectYearMonthDb')
+
+        @if ($action == '/costlist/toptencostslist')
         <br>
         <p>金額のソート基準を選択してください</p>
         <select name="ascdesc" id="asc-desc">
@@ -22,8 +24,26 @@
             <option value="desc">降順</option>
         </select>
         <br>
+        @endif
+
+        @if ($action == '/costaccountcontent/costaccountcontent')
         <br>
-        <input class="submit" id="submit" type="submit" value="指定した年月の経費計上リストを出力する">
+        <p>経費計上科目を選択して下さい</p>
+        <select class="account" name="account" id="account">
+            <option value="select">選択して下さい</option>
+            @foreach ($accounts as $account)
+                <option value="{{ $account->accountName }}">{{ $account->accountName }}</option>
+            @endforeach
+        </select>
+        <br>
+        @endif
+
+        @if ($action == '/costlist/costlist')
+        @include('components.selectDayDb')
+        @endif
+        <br>
+        <br>
+        <input class="submit" id="submit" type="submit" value="{{ $inputVal }}">
         <br>
     </form>
     </div>
