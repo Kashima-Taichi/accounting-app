@@ -8,9 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('/style/top.css') }}">
-        <!-- js -->
-        <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
-        <script src="{{ asset('/js/common.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
     </head>
     <body>
         <div class="flex-center position-ref full-height">

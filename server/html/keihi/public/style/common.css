@@ -22,6 +22,10 @@ a {
     text-decoration: none;  
 }
 
+a:hover {
+    color: #FFFF66;
+}
+
 .id {
     width: 70px;
 }

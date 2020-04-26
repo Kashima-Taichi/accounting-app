@@ -10,8 +10,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('/style/top.css') }}">
         <!-- js -->
-        <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
-        <script src="{{ asset('/js/common.js') }}"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
