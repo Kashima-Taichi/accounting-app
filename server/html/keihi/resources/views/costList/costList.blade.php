@@ -7,6 +7,9 @@
     <title>経費明細の参照</title>
 </head>
 <body>
+    @if (count($costLists) == 0)
+    <h2>指定された年月日に経費の計上実績はありません。</h2>
+    @else
     <h2>{{ $selectedYear }}年{{ $selectedMonth }}月<?= $selectedDay !== 'select' ? $selectedDay . '日' : ''; ?>経費計上明細</h2>
     <table border="1" style="border-collapse: collapse" align="center">
     <tr>
@@ -27,6 +30,7 @@
     <br>
     <p>計上金額合計：<?php echo number_format($costAmounts); ?>円</p>
     <br>
+    @endif
     @include('components.linkToTop')
 </body>
 </html>

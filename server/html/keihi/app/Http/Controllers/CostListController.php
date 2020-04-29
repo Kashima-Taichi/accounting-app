@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cost;
 use Illuminate\Http\Request;
+use Log;
 
 class CostListController extends Controller
 {

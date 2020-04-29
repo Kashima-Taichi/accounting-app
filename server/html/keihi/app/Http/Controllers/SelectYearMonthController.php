@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cost;
 use App\Models\Salary;
 use DB;
+use Log;
 
 class SelectYearMonthController extends Controller
 {
@@ -24,10 +25,7 @@ class SelectYearMonthController extends Controller
     public function yearMonthSelector() {
         $yearSelectors = Cost::groupBy('year')->get('year');
         $monthSelectors = Cost::groupBy('month')->get('month');
-        $daySelectors = Cost::groupBy('day')->get('day');
-        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors, 'daySelectors' => $daySelectors
-        , 'title' => '経費明細の参照', 'h2' => '経費明細の参照', 
-        'action' => '/costlist/costlist', 'inputVal' => '指定した年月の経費計上リストを出力する']);
+        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors, 'title' => '経費明細の参照', 'h2' => '経費明細の参照', 'action' => '/costlist/costlist', 'inputVal' => '指定した年月の経費計上リストを出力する']);
     }
 
     // DBから経費計上のある年数と月数を取得して年月選択ページへ渡す model 
