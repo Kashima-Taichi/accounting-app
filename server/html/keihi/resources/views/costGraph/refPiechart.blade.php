@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/style/pieChart.css') }}">
-    <title>経費計上円グラフの参照</title>
+    <title>{{ $param['year'] }}年{{ $param['month'] }}月経費計上円グラフの参照</title>
 </head>
 <body>
     <canvas id="myPieChart"></canvas>
@@ -13,6 +13,7 @@
     <script>
         // コントローラーから取得した配列データのjs変換
         var Data = @json($piechartData);
+        var DataYearMonth = @json($param);
         // 科目名の配列を用意
         var DataAccountname = new Array();
         Data.forEach(function(item, index, array){
@@ -46,7 +47,7 @@
             options: {
                 title: {
                     display: true,
-                    text: "経費計上円グラフ (単位：円)"
+                    text: DataYearMonth['year'] + "年" + DataYearMonth['month'] + "月" + "経費計上円グラフ (単位：円)"
                 }
             }
         });

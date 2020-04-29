@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cost;
 use DB;
+use Log;
 // 多次元配列のソート参考：https://qiita.com/shy_azusa/items/54dadc55e3e71cde1445
 
 class GraphController extends Controller
@@ -19,5 +20,4 @@ class GraphController extends Controller
         array_multisort($sort, SORT_DESC, $piechartData);
         return view('costGraph.refPiechart', ['piechartData' => $piechartData, 'param' => $param]);
     }
-
 }
