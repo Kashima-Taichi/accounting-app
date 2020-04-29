@@ -10,7 +10,7 @@
     font-size: 20px;
 }
 
-.account {
-    width: 200px;
+.account, .year, .month, .day {
+    width: 220px;
     font-size: 20px;
 }

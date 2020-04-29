@@ -15,6 +15,6 @@ class CostRecordController extends Controller {
         unset($costData['_token']);
         $costs->fill($costData)->save();
         return view('costRec.costRec', 
-        ['msg'=>'正しく経費の入力が行われました！続けて経費の計上を行うことが可能です。']);
+        ['msg'=>'正しく経費の入力が行われました！続けて経費の計上を行うことが可能です。', 'reuseYear' => $request->year, 'reuseMonth' => $request->month, 'reuseDay' => $request->day]);
     }
 }
