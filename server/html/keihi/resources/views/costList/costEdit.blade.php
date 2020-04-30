@@ -16,9 +16,16 @@
     <br>
     <form action="/costlist/costeditdone" method="post">
         @csrf
+        <p>年数を入力して下さい</p>
+        <input type="text" name="year" class="year" id="year" value="{{ $record->year }}">
+        <p>月数を入力して下さい</p>
+        <input type="text" name="month" class="month" id="month" value="{{ $record->month }}">
+        <p>日数を入力して下さい</p>
+        <input type="text" name="day" class="day" id="day" value="{{ $record->day }}">
         <p>必要であれば科目を選択し直して下さい</p>
         <p>現在の勘定科目：{{ $record->accountName }}</p>
         <select class="account" name="accountName">
+            <option value="{{ $record->accountName }}">{{ $record->accountName }}</option>
             @foreach(config('accountMst') as $key => $value)
                 <option value="{{ $value }}">{{ $value }}</option>
             @endforeach
@@ -27,7 +34,7 @@
         <br>
         <p>金額を入力し直して下さい</p>
         <p>現在の計上金額：{{ $record->price }}</p>
-        <input type="text" id="price" name="price" class="price numeric">
+        <input type="text" id="price" name="price" class="price numeric" value="{{ $record->price }}">
         <br>
         <br>
         <p>摘要の修正もできます:</p>

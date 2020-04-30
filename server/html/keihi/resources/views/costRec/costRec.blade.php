@@ -17,12 +17,12 @@
     <h2>経費の計上を行う</h2>
     <form action="/costrec/costrec" method="post">
         @csrf
-        <p>年数を選択して下さい</p>
-        <input type="text" name="year" class="year" id="year" value="{{ $reuseYear ?? '' }}">
-        <p>月数を選択して下さい</p>
-        <input type="text" name="month" class="month" id="month" value="{{ $reuseMonth ?? '' }}">
-        <p>日数を選択して下さい</p>
-        <input type="text" name="day" class="day" id="day" value="{{ $reuseDay ?? '' }}">
+        <p>年数を入力して下さい</p>
+        <input type="text" name="year" class="year" id="year" value="{{ $reuseYear ?? date('Y') }}">
+        <p>月数を入力して下さい</p>
+        <input type="text" name="month" class="month" id="month" value="{{ $reuseMonth ?? date('n') }}">
+        <p>日数を入力して下さい</p>
+        <input type="text" name="day" class="day" id="day" value="{{ $reuseDay ?? date('d') }}">
         <p>科目を選択して下さい</p>
         <select class="account" name="accountName" id="account">
             @foreach(config('accountMst') as $key => $value)

@@ -20,4 +20,7 @@ class GraphController extends Controller
         array_multisort($sort, SORT_DESC, $piechartData);
         return view('costGraph.refPiechart', ['piechartData' => $piechartData, 'param' => $param]);
     }
+
+    // 折れ線グラフは下記サイトを参考に実装
+    // https://qiita.com/matyahiko2831/items/30c09416dcb334a5576f
 }
