@@ -95,8 +95,11 @@ Route::post('/costcsv/writecsv', 'DemoController@csv');
 * グラフ出力関係のルーティング
 */
 
-// 年月選択ページで年月を選択後に、CSVファイルの書き込みを実行する
+// 年月選択後に円グラフを出力する
 Route::post('/costgraph/outputpiechart', 'GraphController@createPiechart');
+
+// 年月選択後に折れ線グラフを出力する
+Route::post('/costgraph/outputlinegraph', 'GraphController@createLineGraph');
 
 
 /*
@@ -187,5 +190,8 @@ Route::get('/costlist/toptencosts', 'SelectYearMonthController@yearMonthSelector
 // 経費明細の参照前の年月選択のページへ遷移する
 Route::get('/costlist/selectyearmonth', 'SelectYearMonthController@yearMonthSelector');
 
-// 経費明細の参照前の年月選択のページへ遷移する
-Route::get('/costgraph/selectyearmonth', 'SelectYearMonthController@yearMonthSelectorForCostGraph');
+// 円グラフ参照前の年月選択のページへ遷移する
+Route::get('/costgraph/selectyearmonthpiechart', 'SelectYearMonthController@yearMonthSelectorForPieChart');
+
+// 折れ線グラフ参照前の年月選択のページへ遷移する
+Route::get('/costgraph/selectyearmonthlinegraph', 'SelectYearMonthController@yearMonthSelectorForLineGraph');

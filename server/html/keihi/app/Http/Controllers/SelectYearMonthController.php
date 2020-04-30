@@ -53,10 +53,19 @@ class SelectYearMonthController extends Controller
     }
 
     // 選択使用の年数を取得 model 
-    public function yearMonthSelectorForCostGraph() {
+    public function yearMonthSelectorForPieChart() {
         $yearSelectors = Cost::groupBy('year')->get('year');
         $monthSelectors = Cost::groupBy('month')->get('month');
         return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '経費計上円グラフの出力', 'h2' => '経費計上円グラフの出力', 
         'action' => '/costgraph/outputpiechart', 'inputVal' => '指定した年月の経費計上データの円グラフを出力する']);
     }
+
+    // 選択使用の年数を取得 model 
+    public function yearMonthSelectorForLineGraph() {
+        $yearSelectors = Cost::groupBy('year')->get('year');
+        $monthSelectors = Cost::groupBy('month')->get('month');
+        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '経費計上円グラフの出力', 'h2' => '経費計上円グラフの出力', 
+        'action' => '/costgraph/outputlinegraph', 'inputVal' => '指定した年月の経費計上データの折れ線グラフを出力する']);
+    }
+
 }

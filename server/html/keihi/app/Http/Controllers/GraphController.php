@@ -21,6 +21,11 @@ class GraphController extends Controller
         return view('costGraph.refPiechart', ['piechartData' => $piechartData, 'param' => $param]);
     }
 
-    // 折れ線グラフは下記サイトを参考に実装
-    // https://qiita.com/matyahiko2831/items/30c09416dcb334a5576f
+    // 科目別に計上された経費のデータを抽出する DB
+    public function createLineGraph(Request $request) {
+        $param = ['year' => $request->year, 'month' => $request->month];
+        $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
+        Log::debug($lineGraphData);
+        return view('costGraph.refLinegraph', ['lineGraphData' => $lineGraphData, 'param' => $param]);
+    }
 }
