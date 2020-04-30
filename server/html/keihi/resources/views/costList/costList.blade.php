@@ -17,6 +17,7 @@
     <th class="accName">科目名称</th>
     <th class="price">金額</th>
     <th class="journal">摘要</th>
+    <th class="day">計上日</th>
     </tr>
         @foreach ($costLists as $costList)
             <tr>
@@ -24,6 +25,7 @@
                 <td>{{ $costList->accountName }}</td>
                 <td><?php echo number_format($costList->price); ?></td>
                 <td>{{ $costList->journal }}</td>
+                <td>{{ $costList->day }}</td>
             </tr>
         @endforeach
     </table>
