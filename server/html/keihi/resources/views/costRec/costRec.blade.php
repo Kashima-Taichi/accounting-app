@@ -22,7 +22,7 @@
         <p>月数を入力して下さい</p>
         <input type="text" name="month" class="month" id="month" value="{{ $reuseMonth ?? date('n') }}">
         <p>日数を入力して下さい</p>
-        <input type="text" name="day" class="day" id="day" value="{{ $reuseDay ?? date('d') }}">
+        <input type="text" name="day" class="day" id="day" value="{{ $reuseDay ?? date('j') }}">
         <p>科目を選択して下さい</p>
         <select class="account" name="accountName" id="account">
             @foreach(config('accountMst') as $key => $value)
