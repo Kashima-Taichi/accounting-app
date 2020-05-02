@@ -176,19 +176,19 @@ Route::post('/workinghours/workinghourseditdone', 'WorkingHoursController@workin
  */
 
 // PL出力の際の年月選択ページへのルーティング
-Route::get('outputpl/selectyearmonth', 'SelectYearMonthController@selectYearMonth');
+Route::get('outputpl/selectyearmonthpl', 'SelectYearMonthController@yearMonthSelectorForPl');
 
 // 年月選択ページへ遷移
-Route::get('/costaccountcontent/selectyearmonth', 'SelectYearMonthController@selectYearMonthBeforeFilter');
+Route::get('/costaccountcontent/selectyearmonthcostaccount', 'SelectYearMonthController@yearMonthSelectorForBeforeFilter');
 
 //CSVファイルを出力する際の年月を選択する
-Route::get('/costcsv/selectyearmonth', 'SelectYearMonthController@selectYearMonthBeforewriteCsv');
+Route::get('/costcsv/selectyearmonthcsv', 'SelectYearMonthController@yearMonthSelectorForBeforewriteCsv');
 
 // 計上された経費のトップ10位を見る前の年月選択ページ
 Route::get('/costlist/toptencosts', 'SelectYearMonthController@yearMonthSelectorForTopTen');
 
 // 経費明細の参照前の年月選択のページへ遷移する
-Route::get('/costlist/selectyearmonth', 'SelectYearMonthController@yearMonthSelector');
+Route::get('/costlist/selectyearmonthcostlist', 'SelectYearMonthController@yearMonthSelectorforCostlist');
 
 // 円グラフ参照前の年月選択のページへ遷移する
 Route::get('/costgraph/selectyearmonthpiechart', 'SelectYearMonthController@yearMonthSelectorForPieChart');

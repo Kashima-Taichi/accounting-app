@@ -11,7 +11,7 @@ use Log;
 class SelectYearMonthController extends Controller
 {
     // 年別月別科目別経費実績の検索を行う際の条件設定 model
-    public function selectYearMonthBeforeFilter() {
+    public function yearMonthSelectorForBeforeFilter() {
         $yearSelectors = Cost::groupBy('year')->get('year');
         $monthSelectors = Cost::groupBy('month')->get('month');
         $accounts = Cost::groupBy('accountName')->get(['accountName']);
@@ -22,7 +22,7 @@ class SelectYearMonthController extends Controller
     }
 
     // DBから経費計上のある年数と月数を取得して年月選択ページへ渡す model 
-    public function yearMonthSelector() {
+    public function yearMonthSelectorforCostlist() {
         $yearSelectors = Cost::groupBy('year')->get('year');
         $monthSelectors = Cost::groupBy('month')->get('month');
         return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors, 'title' => '経費明細の参照', 'h2' => '経費明細の参照', 'action' => '/costlist/costlist', 'inputVal' => '指定した年月の経費計上リストを出力する']);
@@ -37,7 +37,7 @@ class SelectYearMonthController extends Controller
     }
 
     // CSVを出力させる年月を選択するページの年と月を計上実績のあるものをDBから取得 DB
-    public function selectYearMonthBeforewriteCsv() {
+    public function yearMonthSelectorForBeforewriteCsv() {
         $yearSelectors = Cost::groupBy('year')->get('year');
         $monthSelectors = Cost::groupBy('month')->get('month');
         return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '経費明細のCSV出力', 'h2' => 'CSVファイルの出力', 
@@ -45,7 +45,7 @@ class SelectYearMonthController extends Controller
     }
 
     // 選択使用の年数を取得 model 
-    public function selectYearMonth() {
+    public function yearMonthSelectorForPl() {
         $yearSelectors = Salary::groupBy('year')->get('year');
         $monthSelectors = Salary::groupBy('month')->get('month');
         return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '個人PLの参照', 'h2' => '年月を選択してPLを出力しよう！', 
