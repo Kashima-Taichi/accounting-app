@@ -28,7 +28,7 @@
         <br>
         @endif
 
-        @if ($action == '/costaccountcontent/costaccountcontent' || '/costgraph/selectyearmonthlinegraphmonthaccount')
+        @if ($action == '/costaccountcontent/costaccountcontent' || $action == '/costgraph/selectyearmonthlinegraphmonthaccount')
         <br>
         <p>経費計上科目を選択して下さい</p>
         <select class="account" name="account" id="account">
