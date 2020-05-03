@@ -13,19 +13,16 @@
     <script type="text/javascript">
         var costData = @json($lineGraphData);
         var labelData = @json($param);
-        console.log(costData);
         // 年月の配列を用意
         var dataDates = new Array();
         costData.forEach(function(item, index, array){
             dataDates[index] = costData[index]['yearMonth'];
         });
-        console.log(dataDates);
         // 経費計上額の配列を用意
         var dataCosts = new Array();
         costData.forEach(function(item, index, array){
             dataCosts[index] = costData[index]['amount'];
         });
-        console.log(dataCosts);
 
         var ctx = document.getElementById('myLineGraph').getContext('2d');
         var myChart = new Chart(ctx, {
