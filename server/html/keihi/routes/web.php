@@ -99,7 +99,10 @@ Route::post('/costcsv/writecsv', 'DemoController@csv');
 Route::post('/costgraph/outputpiechart', 'GraphController@createPiechart');
 
 // 年月選択後に折れ線グラフを出力する
-Route::post('/costgraph/outputlinegraph', 'GraphController@createLineGraph');
+Route::post('/costgraph/outputlinegraphdailycost', 'GraphController@createLineGraph');
+
+// 勘定科目選択後に折れ線グラフを出力する
+Route::post('/costgraph/outputlinegraphMonthAccount', 'GraphController@createLineGraphAccountMonth');
 
 
 /*
@@ -175,23 +178,26 @@ Route::post('/workinghours/workinghourseditdone', 'WorkingHoursController@workin
  * 年月選択関係のルーティング 
  */
 
-// PL出力の際の年月選択ページへのルーティング
+// PL出力
 Route::get('outputpl/selectyearmonthpl', 'SelectYearMonthController@yearMonthSelectorForPl');
 
-// 年月選択ページへ遷移
+// 科目別の経費計上実績の参照
 Route::get('/costaccountcontent/selectyearmonthcostaccount', 'SelectYearMonthController@yearMonthSelectorForBeforeFilter');
 
-//CSVファイルを出力する際の年月を選択する
+// CSV出力時
 Route::get('/costcsv/selectyearmonthcsv', 'SelectYearMonthController@yearMonthSelectorForBeforewriteCsv');
 
-// 計上された経費のトップ10位を見る前の年月選択ページ
+// 経費計上実績の上位10位
 Route::get('/costlist/toptencosts', 'SelectYearMonthController@yearMonthSelectorForTopTen');
 
-// 経費明細の参照前の年月選択のページへ遷移する
+// 経費計上リスト
 Route::get('/costlist/selectyearmonthcostlist', 'SelectYearMonthController@yearMonthSelectorforCostlist');
 
-// 円グラフ参照前の年月選択のページへ遷移する
+// 円グラフ　月別の経費計上
 Route::get('/costgraph/selectyearmonthpiechart', 'SelectYearMonthController@yearMonthSelectorForPieChart');
 
-// 折れ線グラフ参照前の年月選択のページへ遷移する
-Route::get('/costgraph/selectyearmonthlinegraph', 'SelectYearMonthController@yearMonthSelectorForLineGraph');
+// 折れ線グラフ　当月内の日別の経費の計上推移
+Route::get('/costgraph/selectyearmonthlinegraphdailycost', 'SelectYearMonthController@yearMonthSelectorForLineGraphDaily');
+
+// 月別科目別の経費計上推移
+Route::get('/costgraph/selectyearmonthlinegraphmonthaccount', 'SelectYearMonthController@yearMonthSelectorForLineGraphMonthAccount');

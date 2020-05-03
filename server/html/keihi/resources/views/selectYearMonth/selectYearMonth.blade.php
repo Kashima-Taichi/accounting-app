@@ -13,7 +13,9 @@
     <h2>{{ $h2 }}</h2>
     <form action="{{ $action }}" method="post">
         @csrf
+        @if ($action != '/costgraph/outputlinegraphMonthAccount')
         @include('components.selectYearMonthDb')
+        @endif
 
         @if ($action == '/costlist/toptencostslist')
         <br>
@@ -26,7 +28,7 @@
         <br>
         @endif
 
-        @if ($action == '/costaccountcontent/costaccountcontent')
+        @if ($action == '/costaccountcontent/costaccountcontent' || '/costgraph/selectyearmonthlinegraphmonthaccount')
         <br>
         <p>経費計上科目を選択して下さい</p>
         <select class="account" name="account" id="account">

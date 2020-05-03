@@ -25,7 +25,13 @@ class GraphController extends Controller
     public function createLineGraph(Request $request) {
         $param = ['year' => $request->year, 'month' => $request->month];
         $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
-        Log::debug($lineGraphData);
         return view('costGraph.refLinegraph', ['lineGraphData' => $lineGraphData, 'param' => $param]);
+    }
+
+    // 科目別に計上された経費のデータを抽出する DB
+    public function createLineGraphAccountMonth(Request $request) {
+        $param = $request->account;
+        $lineGraphData = DB::select('SELECT sum(price) as amount, concat(year, "/", month) as yearMonth FROM costs WHERE accountName = ? GROUP BY year, month', [$param]);
+        return view('costGraph.refLinegraphMonthAccount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
     }
 }
