@@ -30,6 +30,7 @@
                 <br>
                 <div class="links">
                     <a href="<?php echo url('incomegraph'); ?>" id="link">手取り計上推移折れ線グラフの参照</a>
+                    <a href="<?php echo url('hoursgraph'); ?>" id="link">稼働時間推移折れ線グラフの参照</a>
                 </div>
                 <br>
                 <div class="links">

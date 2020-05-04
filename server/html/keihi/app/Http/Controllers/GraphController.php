@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cost;
 use App\Models\Salary;
+use App\Models\Hour;
 use DB;
 use Log;
 // 多次元配列のソート参考：https://qiita.com/shy_azusa/items/54dadc55e3e71cde1445
@@ -44,5 +45,15 @@ class GraphController extends Controller
         }
         array_multisort($sort, SORT_ASC, $incomeData);
         return view('incomeGraph.refLineIncomeGraph', ['incomeData' => $incomeData]);
+    }
+
+    // 計上されて稼働時間を全て取得
+    public function createLineGraphHours() {
+        $hourData = DB::select('SELECT * FROM hours');
+        foreach ((array) $hourData as $key => $value) {
+            $sort[$key] = $value->yearMonth;
+        }
+        array_multisort($sort, SORT_ASC, $hourData);
+        return view('workingHoursGraph.refHoursGraph', ['hourData' => $hourData]);
     }
 }

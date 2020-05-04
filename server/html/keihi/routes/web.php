@@ -107,6 +107,9 @@ Route::post('/costgraph/outputlinegraphMonthAccount', 'GraphController@createLin
 // 所得の計上推移を出力する
 Route::get('incomegraph', 'GraphController@createLineGraphIncome');
 
+// 稼働時間の計上推移を出力する
+Route::get('hoursgraph', 'GraphController@createLineGraphHours');
+
 /*
 * 年別月別科目別経費明細のルーティング
 */
