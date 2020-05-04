@@ -104,6 +104,8 @@ Route::post('/costgraph/outputlinegraphdailycost', 'GraphController@createLineGr
 // 勘定科目選択後に折れ線グラフを出力する
 Route::post('/costgraph/outputlinegraphMonthAccount', 'GraphController@createLineGraphAccountMonth');
 
+// 所得の計上推移を出力する
+Route::get('incomegraph', 'GraphController@createLineGraphIncome');
 
 /*
 * 年別月別科目別経費明細のルーティング

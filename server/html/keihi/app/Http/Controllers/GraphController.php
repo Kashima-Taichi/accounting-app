@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cost;
+use App\Models\Salary;
 use DB;
 use Log;
 // 多次元配列のソート参考：https://qiita.com/shy_azusa/items/54dadc55e3e71cde1445
@@ -33,5 +34,11 @@ class GraphController extends Controller
         $param = $request->account;
         $lineGraphData = DB::select('SELECT sum(price) as amount, concat(year, "/", month) as yearMonth FROM costs WHERE accountName = ? GROUP BY year, month', [$param]);
         return view('costGraph.refLinegraphMonthAccount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
+    }
+
+    // 計上されて所得を全て取得
+    public function createLineGraphIncome() {
+        $incomeData = Salary::all();
+        return view('incomeGraph.refLineIncomeGraph', ['incomeData' => $incomeData]);
     }
 }
