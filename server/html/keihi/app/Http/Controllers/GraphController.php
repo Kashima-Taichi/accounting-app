@@ -36,9 +36,13 @@ class GraphController extends Controller
         return view('costGraph.refLinegraphMonthAccount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
     }
 
-    // 計上されて所得を全て取得
+    // 計上されて所得(手取り金額)を全て取得
     public function createLineGraphIncome() {
-        $incomeData = Salary::all();
+        $incomeData = DB::select('SELECT * FROM salaries');
+        foreach ((array) $incomeData as $key => $value) {
+            $sort[$key] = $value->yearMonth;
+        }
+        array_multisort($sort, SORT_ASC, $incomeData);
         return view('incomeGraph.refLineIncomeGraph', ['incomeData' => $incomeData]);
     }
 }
