@@ -77,9 +77,6 @@ Route::get('/costlist/costedit/{id}', 'CostListController@costEdit');
 // 修正ページから修正内容をDBに送って修正ページへ再帰
 Route::post('/costlist/costeditdone', 'CostListController@postEdit');
 
-// 全ての計上された経費明細を取得
-Route::get('/costlist/costpaginate', 'CostListController@costspaginate');
-
 // 計上された経費のトップ10位を見る
 Route::post('/costlist/toptencostslist', 'CostListController@getTopTenCosts');
 

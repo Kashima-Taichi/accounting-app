@@ -54,12 +54,6 @@ class CostListController extends Controller
         return view('costList.costEditDone', ['editedRecord' => $toBeEditedData]);
     }
 
-    // 登録された全ての経費実績の参照機能 model
-    public function costspaginate() {
-        $costsPaginated = Cost::paginate(10);
-        return view('costList.costPaginate', ['costs' => $costsPaginated]);
-    }
-
     // 計上された経費のトップ10を見る model
     public function getTopTenCosts(Request $request) {
         // DBのpriceカラムがvarcharのため、データの取得結果がおかしかった
