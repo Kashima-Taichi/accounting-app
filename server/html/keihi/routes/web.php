@@ -39,6 +39,11 @@ Route::get('/tops/incometop', function () {
     return view('tops/incomeTop');
 });
 
+// グラフ参照関係のメニューへ飛ばす
+Route::get('/tops/graphTop', function () {
+    return view('tops/graphTop');
+});
+
 // 特殊機能のメニューへ飛ばす
 Route::get('/tops/specialtop', function () {
     return view('tops/specialTop');
