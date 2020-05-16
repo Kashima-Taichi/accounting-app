@@ -103,6 +103,9 @@ Route::post('/costgraph/outputpiechart', 'GraphController@createPiechart');
 // 年月選択後に折れ線グラフを出力する
 Route::post('/costgraph/outputlinegraphdailycost', 'GraphController@createLineGraph');
 
+// 年月選択後に折れ線グラフを出力する
+Route::post('/costgraph/outputlinegraphdailycosts', 'GraphController@createLineGraphs');
+
 // 勘定科目選択後に折れ線グラフを出力する
 Route::post('/costgraph/outputlinegraphMonthAccount', 'GraphController@createLineGraphAccountMonth');
 
@@ -203,8 +206,11 @@ Route::get('/costlist/selectyearmonthcostlist', 'SelectYearMonthController@yearM
 // 円グラフ　月別の経費計上
 Route::get('/costgraph/selectyearmonthpiechart', 'SelectYearMonthController@yearMonthSelectorForPieChart');
 
-// 折れ線グラフ　当月内の日別の経費の計上推移
+// 折れ線グラフ　当月内の日別の経費の計上推移(単月)
 Route::get('/costgraph/selectyearmonthlinegraphdailycost', 'SelectYearMonthController@yearMonthSelectorForLineGraphDaily');
+
+// 折れ線グラフ　当月内の日別の経費の計上推移(複数)
+Route::get('/costgraph/selectyearmonthlinegraphdailycosts', 'SelectYearMonthController@yearMonthSelectorForLineGraphsDaily');
 
 // 月別科目別の経費計上推移
 Route::get('/costgraph/selectyearmonthlinegraphmonthaccount', 'SelectYearMonthController@yearMonthSelectorForLineGraphMonthAccount');

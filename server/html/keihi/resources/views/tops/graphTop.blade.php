@@ -16,16 +16,14 @@
                 <div class="title m-b-md">
                     グラフ参照関係のメニュー
                 </div>
-                <div class="links">
-                    <a href="<?php echo url('costgraph/selectyearmonthpiechart'); ?>" id="link">経費計上円グラフの出力</a>
-                    <a href="<?php echo url('costgraph/selectyearmonthlinegraphdailycost'); ?>" id="link">経費計上日別推移折れ線グラフの参照</a>
-                    <a href="<?php echo url('costgraph/selectyearmonthlinegraphmonthaccount'); ?>" id="link">科目別推移折れ線グラフの参照</a>
-                </div>
-                <br>
-                <div>
-                    <a href="<?php echo url('incomegraph'); ?>" id="link">手取り計上推移折れ線グラフの参照</a>
-                    <a href="<?php echo url('hoursgraph'); ?>" id="link">稼働時間推移折れ線グラフの参照</a>
-                    <a href="<?php echo url('/'); ?>" id="link">アプリのトップページへ戻る</a>
+                <div class="links-vertical">
+                    <a class="pad" href="<?php echo url('costgraph/selectyearmonthpiechart'); ?>" id="link">経費計上円グラフの出力</a>
+                    <a class="pad" href="<?php echo url('costgraph/selectyearmonthlinegraphdailycost'); ?>" id="link">経費計上日別推移折れ線グラフの参照(単月)</a>
+                    <a class="pad" href="<?php echo url('costgraph/selectyearmonthlinegraphdailycosts'); ?>" id="link">経費計上日別推移折れ線グラフの参照(複数月)</a>
+                    <a class="pad" href="<?php echo url('costgraph/selectyearmonthlinegraphmonthaccount'); ?>" id="link">科目別推移折れ線グラフの参照</a>
+                    <a class="pad" href="<?php echo url('incomegraph'); ?>" id="link">手取り計上推移折れ線グラフの参照</a>
+                    <a class="pad" href="<?php echo url('hoursgraph'); ?>" id="link">稼働時間推移折れ線グラフの参照</a>
+                    <a class="pad" href="<?php echo url('/'); ?>" id="link">アプリのトップページへ戻る</a>
                 </div>
             </div>
         </div>

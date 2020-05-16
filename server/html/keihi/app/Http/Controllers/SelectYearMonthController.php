@@ -60,12 +60,20 @@ class SelectYearMonthController extends Controller
         'action' => '/costgraph/outputpiechart', 'inputVal' => '指定した年月の経費計上データの円グラフを出力する']);
     }
 
-    // 折れ線グラフ月内日別 model 
+    // 単月 折れ線グラフ月内日別 model 
     public function yearMonthSelectorForLineGraphDaily() {
         $yearSelectors = Cost::groupBy('year')->get('year');
         $monthSelectors = Cost::groupBy('month')->get('month');
-        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '経費計上折れ線グラフの出力', 'h2' => '経費計上折れ線グラフの出力', 
-        'action' => '/costgraph/outputlinegraphdailycost', 'inputVal' => '指定した年月の経費計上データの折れ線グラフを出力する']);
+        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '経費計上折れ線グラフの出力(単月)', 'h2' => '経費計上折れ線グラフの出力(単月)', 
+        'action' => '/costgraph/outputlinegraphdailycost', 'inputVal' => '指定した年月の経費計上データの折れ線グラフを出力する(単月)']);
+    }
+
+    // 複数月 折れ線グラフ月内日別 model 
+    public function yearMonthSelectorForLineGraphsDaily() {
+        $yearSelectors = Cost::groupBy('year')->get('year');
+        $monthSelectors = Cost::groupBy('month')->get('month');
+        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '経費計上折れ線グラフの出力(複数月)', 'h2' => '経費計上折れ線グラフの出力(複数月)', 
+        'action' => '/costgraph/outputlinegraphdailycosts', 'inputVal' => '指定した年月の経費計上データの折れ線グラフを出力する(複数月)']);
     }
 
     // 折れ線グラフ月別科目別推移 model

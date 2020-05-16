@@ -23,11 +23,19 @@ class GraphController extends Controller
         return view('costGraph.refPiechart', ['piechartData' => $piechartData, 'param' => $param]);
     }
 
-    // 科目別に計上された経費のデータを抽出する DB
+    // 単月の経費計上実績を参照する DB
     public function createLineGraph(Request $request) {
         $param = ['year' => $request->year, 'month' => $request->month];
         $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
         return view('costGraph.refLinegraph', ['lineGraphData' => $lineGraphData, 'param' => $param]);
+    }
+
+    // 複数月の経費計上実績を参照する DB
+    public function createLineGraphs(Request $request) {
+        $param = ['year' => $request->year, 'month' => $request->month];
+        $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
+        $lineGraphDataMinusOne = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month - 1 GROUP BY day', $param);
+        return view('costGraph.refLinegraphs', ['lineGraphData' => $lineGraphData, 'lineGraphDataMinusOne' => $lineGraphDataMinusOne,'param' => $param]);
     }
 
     // 科目別に計上された経費のデータを抽出する DB
