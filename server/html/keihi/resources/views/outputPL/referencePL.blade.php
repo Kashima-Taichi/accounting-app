@@ -32,7 +32,7 @@
     @foreach ($costsForPL as $costForPL)
     <tr>
         <td>{{ $costForPL->accountName }}</td>
-        <td><?= number_format($costForPL->accountAmount) . ' (割合：' . round($costForPL->accountAmount / $cost, 4) * 100 . ')'; ?></td>
+        <td><?= number_format($costForPL->accountAmount) . ' ( ' . round($costForPL->accountAmount / $cost, 4) * 100 . '% )'; ?></td>
     </tr>
     @endforeach
 
