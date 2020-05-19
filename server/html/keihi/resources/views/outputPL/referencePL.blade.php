@@ -25,13 +25,17 @@
 
     @if (!empty($costsForPL) === true)
         <?php $cost = 0; ?>
-        @foreach ($costsForPL as $costForPL)
-        <tr>
-            <td>{{ $costForPL->accountName }}</td>
-            <td><?= number_format($costForPL->accountAmount); ?></td>
-        </tr>
+    @foreach ($costsForPL as $costForPL)
         <?php $cost += $costForPL->accountAmount; ?>
-        @endforeach
+    @endforeach
+
+    @foreach ($costsForPL as $costForPL)
+    <tr>
+        <td>{{ $costForPL->accountName }}</td>
+        <td><?= number_format($costForPL->accountAmount) . ' (割合：' . round($costForPL->accountAmount / $cost, 4) * 100 . ')'; ?></td>
+    </tr>
+    @endforeach
+
     <tr class="costamount">
         <td>経費合計</td>
         <td class="cost-amount"><?= number_format($cost); ?></td>
