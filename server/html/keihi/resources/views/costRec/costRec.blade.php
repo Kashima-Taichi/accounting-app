@@ -17,24 +17,42 @@
     <h2>経費の計上を行う</h2>
     <form action="/costrec/costrec" method="post">
         @csrf
-        <p>年数を入力して下さい</p>
-        <input type="text" name="year" class="year" id="year" value="{{ $reuseYear ?? date('Y') }}">
-        <p>月数を入力して下さい</p>
-        <input type="text" name="month" class="month" id="month" value="{{ $reuseMonth ?? date('n') }}">
-        <p>日数を入力して下さい</p>
-        <input type="text" name="day" class="day" id="day" value="{{ $reuseDay ?? date('j') }}">
-        <p>科目を選択して下さい</p>
-        <select class="account" name="accountName" id="account">
-            @foreach(config('accountMst') as $key => $value)
-                <option value="{{ $value }}">{{ $value }}</option>
-            @endforeach
-        </select>
-        <p>金額を入力して下さい</p>
-        <input type="text" id="price" name="price" class="price numeric">
-        <p>摘要の入力:</p>
-        <textarea name="journal" id="journal" class="journal"></textarea>
+        <div class="date">
+            <div class="year-parts">
+                <p>年数を入力して下さい</p>
+                <input type="text" name="year" class="year" id="year" value="{{ $reuseYear ?? date('Y') }}">
+            </div>
+            <div class="month-parts">
+                <p>月数を入力して下さい</p>
+                <input type="text" name="month" class="month" id="month" value="{{ $reuseMonth ?? date('n') }}">
+            </div>
+            <div class="day-parts">
+                <p>日数を入力して下さい</p>
+                <input type="text" name="day" class="day" id="day" value="{{ $reuseDay ?? date('j') }}">
+            </div>
+        </div>
+
+        <div class="account-parts">
+            <p>科目を選択して下さい：</p>
+            <select class="account" name="accountName" id="account">
+                @foreach(config('accountMst') as $key => $value)
+                    <option value="{{ $value }}">{{ $value }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="price-parts">
+            <p>金額を入力して下さい：</p>
+            <input type="text" id="price" name="price" class="price numeric">
+        </div>
+        
+        <div class="journal-parts">
+            <p>摘要の入力:</p>
+            <textarea name="journal" id="journal" class="journal"></textarea>
+        </div>
+
         <br>
-        <input class="submit" id="submit" type="submit" value="送信する">
+        <button class="submit" id="submit" type="submit">送信する</button>
         <div class="display-result">
             {{ $msg ?? '' }}
         </div>

@@ -8,9 +8,89 @@
     width: 300px;
     height: 60px;
     font-size: 20px;
+
+    border: 2px solid #008BBB;
+    border-radius: 0.67em;
+    padding: 0.5em;
+    background-color: snow;
+    width: 100%;
+    box-sizing: border-box;
+    height: 120px;
+    font-size: 1em;
+    line-height: 1.2;
 }
 
 .account, .year, .month, .day {
     width: 220px;
     font-size: 20px;
+}
+
+.account, .price, .journal {
+    margin-left: 20px;
+}
+
+.year-parts, .month-parts, .day-parts {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.date {
+    margin-top: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.account-parts {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.price-parts {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.journal-parts {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.submit {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 160px;
+    height: 45px;
+
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 30px;
+    color: #fff;
+    border-style: none;
+    box-shadow: 2px 2px 3px 1px #666;
+    -moz-box-shadow: 2px 2px 3px 1px #666;
+    -webkit-box-shadow: 2px 2px 3px 1px #666;
+    text-shadow: 1px 1px 2px #000;
+    background: #008BBB;
+    background: #008BBB;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.submit:hover {
+    opacity: 0.8
+}
+
+.display-result {
+    margin-top: 20px;
 }
