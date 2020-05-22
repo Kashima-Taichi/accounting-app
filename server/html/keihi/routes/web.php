@@ -49,6 +49,11 @@ Route::get('/tops/specialtop', function () {
     return view('tops/specialTop');
 });
 
+// 科目設定関係のメニューへ遷移させる
+Route::get('/tops/accountstop', function () {
+    return view('tops/accountstop');
+});
+
 
 /*
 * 経費計上関係のルーティング
@@ -184,9 +189,10 @@ Route::get('/workinghours/workinghoursedit/{id}', 'WorkingHoursController@workin
 // 個別の稼働時間明細の修正処理
 Route::post('/workinghours/workinghourseditdone', 'WorkingHoursController@workingHoursEditDone');
 
+
 /*
  * 年月選択関係のルーティング 
- */
+*/
 
 // PL出力
 Route::get('outputpl/selectyearmonthpl', 'SelectYearMonthController@yearMonthSelectorForPl');
@@ -214,3 +220,20 @@ Route::get('/costgraph/selectyearmonthlinegraphdailycosts', 'SelectYearMonthCont
 
 // 月別科目別の経費計上推移
 Route::get('/costgraph/selectyearmonthlinegraphmonthaccount', 'SelectYearMonthController@yearMonthSelectorForLineGraphMonthAccount');
+
+
+/*
+ * 科目マスタ関係のルーティング 
+*/
+
+
+// 勘定科目登録画面へ遷移
+Route::get('/accounts/recordaccounts', function () {
+    return view('accounts/recordAccounts');
+});
+
+// 勘定科目登録を完了させる
+Route::post('/accounts/recordaccountsdone', 'accountController@recordAccounts');
+
+// 勘定科目一覧参照画面へ遷移
+Route::get('/accounts/refaccounts', 'accountController@outputAccountsList');
