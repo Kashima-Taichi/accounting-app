@@ -34,14 +34,6 @@
 
         <div class="account-parts">
             <p>科目を選択して下さい：</p>
-            <select class="account" name="accountName" id="account">
-                @foreach(config('accountMst') as $key => $value)
-                    <option value="{{ $value }}">{{ $value }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div class="account-parts">
             {!! Form::select('accountName', App\Models\Account::accountsList(), null, ['id' => 'account', 'class' => 'account','required' => 'required']) !!}
         </div>
 

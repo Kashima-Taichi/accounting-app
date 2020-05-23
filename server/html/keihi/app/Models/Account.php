@@ -20,7 +20,7 @@ class Account extends Model
         $accounts = Account::all();
         $list = array();
         foreach ($accounts as $account) {
-            $list += array($account->accountAlpha => $account->accountKanji);
+            $list += array($account->accountKanji => $account->accountKanji);
         }
         return $list;
     }
