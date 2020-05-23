@@ -50,8 +50,8 @@ Route::get('/tops/specialtop', function () {
 });
 
 // 科目設定関係のメニューへ遷移させる
-Route::get('/tops/accountstop', function () {
-    return view('tops/accountstop');
+Route::get('/tops/settingstop', function () {
+    return view('tops/settingstop');
 });
 
 
@@ -233,7 +233,7 @@ Route::get('/accounts/recordaccounts', function () {
 });
 
 // 勘定科目登録を完了させる
-Route::post('/accounts/recordaccountsdone', 'accountController@recordAccounts');
+Route::post('/accounts/recordaccountsdone', 'AccountController@recordAccounts');
 
 // 勘定科目一覧参照画面へ遷移
-Route::get('/accounts/refaccounts', 'accountController@outputAccountsList');
+Route::get('/accounts/refaccounts', 'AccountController@outputAccountsList');

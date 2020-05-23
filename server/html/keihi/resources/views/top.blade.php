@@ -22,6 +22,10 @@
                     <a href="<?php echo url('tops/graphTop'); ?>" id="link">グラフ参照関係のメニュー</a>
                     <a href="<?php echo url('tops/specialtop'); ?>" id="link">その他機能へのメニュー</a>
                 </div>
+                <br>
+                <div class="links">
+                    <a href="<?php echo url('tops/settingstop'); ?>" id="link">設定関係のメニューへ</a>
+                </div>
             </div>
         </div>
     </body>
