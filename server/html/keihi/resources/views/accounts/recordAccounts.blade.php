@@ -17,12 +17,12 @@
 
             <div class="account-alpha">
                 <p>勘定科目を小文字のアルファベットで入力して下さい</p>
-                <input type="text" id="accountsAlpha" name="accountsAlpha" class="accountsAlpha">
+                <input type="text" id="accountAlpha" name="accountAlpha" class="accountAlpha">
             </div>
 
             <div class="account-kanzi">
                 <p>勘定科目を漢字で入力して下さい</p>
-                <input type="text" id="accountsKanji" name="accountsKanji" class="accountsKanji">
+                <input type="text" id="accountKanji" name="accountKanji" class="accountKanji">
             </div>
 
             <br>
