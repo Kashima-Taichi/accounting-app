@@ -23,7 +23,8 @@ class AccountController extends Controller
     }
 
     public function outputAccountsList() {
-        $accountsData = Account::paginate(10);
+        $accountsData = Account::paginate(13);
+        Log::debug($accountsData);
         return view('accounts/refAccounts', ['accountsData' => $accountsData]);
     }
 }
