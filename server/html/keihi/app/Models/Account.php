@@ -14,4 +14,14 @@ class Account extends Model
         'accountAlpha' => 'required',
         'accountKanji' => 'required',
     ];
+
+    // 勘定科目のセレクトボックス用のリストを取得
+    public static function accountsList() {
+        $accounts = Account::all();
+        $list = array();
+        foreach ($accounts as $account) {
+            $list += array($account->accountAlpha => $account->accountKanji);
+        }
+        return $list;
+    }
 }

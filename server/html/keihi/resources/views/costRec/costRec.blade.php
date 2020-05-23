@@ -41,6 +41,10 @@
             </select>
         </div>
 
+        <div class="account-parts">
+            {!! Form::select('accountName', App\Models\Account::accountsList(), null, ['id' => 'account', 'class' => 'account','required' => 'required']) !!}
+        </div>
+
         <div class="price-parts">
             <p>金額を入力して下さい：</p>
             <input type="text" id="price" name="price" class="price numeric">
