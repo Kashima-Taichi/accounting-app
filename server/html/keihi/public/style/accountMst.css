@@ -2,20 +2,12 @@
     width: 70px;
 }
 
-.accName {
+.alpha {
     width: 200px;
 }
 
-.price {
-    width: 140px;
-}
-
-.journal {
-    width: 400px;
-}
-
-.year, .month, .day {
-    width: 120px;
+.kanji {
+    width: 200px;
 }
 
 /* Laravelのpaginateで出力されるデフォルトのulタグは”・”を出力するが、それを消すのが下記のソース */
