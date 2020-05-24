@@ -21,8 +21,10 @@
         });
         // 経費計上額の配列を用意
         var DataAmount = new Array();
+        var DataTotal = 0;
         Data.forEach(function(item, index, array){
             DataAmount[index] = Data[index]['accountAmount'];
+            DataTotal += parseInt(Data[index]['accountAmount']);
         });
         // 色彩データの配列を用意
         var colorData = @json(config('colorMst'));
@@ -47,7 +49,7 @@
             options: {
                 title: {
                     display: true,
-                    text: DataYearMonth['year'] + "年" + DataYearMonth['month'] + "月" + "経費計上円グラフ (単位：円)"
+                    text: DataYearMonth['year'] + "年" + DataYearMonth['month'] + "月" + "経費計上円グラフ (単位：円)　計上金額合計：" + DataTotal.toLocaleString() + " 円"
                 }
             }
         });
