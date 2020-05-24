@@ -105,10 +105,10 @@ Route::post('/costcsv/writecsv', 'DemoController@csv');
 // 年月選択後に円グラフを出力する
 Route::post('/costgraph/outputpiechart', 'GraphController@createPiechart');
 
-// 年月選択後に折れ線グラフを出力する
+// 年月選択後に折れ線グラフを出力する 単月
 Route::post('/costgraph/outputlinegraphdailycost', 'GraphController@createLineGraph');
 
-// 年月選択後に折れ線グラフを出力する
+// 年月選択後に折れ線グラフを出力する 複数月
 Route::post('/costgraph/outputlinegraphdailycosts', 'GraphController@createLineGraphs');
 
 // 勘定科目選択後に折れ線グラフを出力する
