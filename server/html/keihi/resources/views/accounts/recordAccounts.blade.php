@@ -17,12 +17,12 @@
 
             <div class="account-alpha">
                 <p>勘定科目を小文字のアルファベットで入力して下さい</p>
-                {{ Form::text('accountAlpha', null, ['class' => 'accountAlpha', 'id' => 'accountAlpha', 'name' => 'accountAlpha']) }}
+                {{ Form::text('accountAlpha', null, ['class' => 'accountAlpha', 'id' => 'accountAlpha']) }}
             </div>
 
             <div class="account-kanzi">
                 <p>勘定科目を漢字で入力して下さい</p>
-                {{ Form::text('accountKanji', null, ['class' => 'accountKanji', 'id' => 'accountKanji', 'name' => 'accountKanji']) }}
+                {{ Form::text('accountKanji', null, ['class' => 'accountKanji', 'id' => 'accountKanji']) }}
             </div>
 
             <br>

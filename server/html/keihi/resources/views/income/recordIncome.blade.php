@@ -21,64 +21,60 @@
         @csrf
         <div>
         <p>登録年数</p>
-        <input id="year" class="numeric" type="text" name="year">
+        {{ Form::text('year', null, ['class' => 'numeric', 'id' => 'year']) }}
         </div>
         <div>
         <p>登録月</p>
-        <input id="month" class="numeric" type="text" name="month">
+        {{ Form::text('month', null, ['class' => 'numeric', 'id' => 'month']) }}
         </div>
         <div>
         <p>総支給金額</p>
-        <input id="totalSalary" class="numeric" type="text" name="totalSalary">
+        {{ Form::text('totalSalary', null, ['class' => 'numeric', 'id' => 'totalSalary']) }}
         </div>
         <div>
         <p>基本給</p>
-        <input id="basicSalary" class="numeric" type="text" name="basicSalary">
+        {{ Form::text('basicSalary', null, ['class' => 'numeric', 'id' => 'basicSalary']) }}
         </div>
         <div>
         <p>残業代</p>
-        <input id="overtimePay" class="numeric" type="text" name="overtimePay">
+        {{ Form::text('overtimePay', null, ['class' => 'numeric', 'id' => 'overtimePay']) }}
         </div>
         <div>
         <p>健康保険料</p>
-        <input id="healthInsurance" class="numeric" type="text" name="healthInsurance">
+        {{ Form::text('healthInsurance', null, ['class' => 'numeric', 'id' => 'healthInsurance']) }}
         </div>
         </div>
         <br>
         <div style="display:inline-flex">
         <div>
         <p>厚生年金</p>
-        <input id="employeePension" class="numeric" type="text" name="employeePension">
+        {{ Form::text('employeePension', null, ['class' => 'numeric', 'id' => 'employeePension']) }}
         </div>
         <div>
         <p>雇用保険料</p>
-        <input id="employmentInsurance" class="numeric" type="text" name="employmentInsurance">
+        {{ Form::text('employmentInsurance', null, ['class' => 'numeric', 'id' => 'employmentInsurance']) }}
         </div>
         <div>
         <p>所得税</p>
-        <input id="incomeTax" class="numeric" type="text" name="incomeTax">
+        {{ Form::text('incomeTax', null, ['class' => 'numeric', 'id' => 'incomeTax']) }}
         </div>
         <div>
         <p>その他控除</p>
-        <input id="otherDeduction" class="numeric" type="text" name="otherDeduction">
+        {{ Form::text('otherDeduction', null, ['class' => 'numeric', 'id' => 'otherDeduction']) }}
         </div>
         <div>
         <p>控除額合計</p>
-        <input id="totalDeduction" class="numeric" type="text" name="totalDeduction">
+        {{ Form::text('totalDeduction', null, ['class' => 'numeric', 'id' => 'totalDeduction']) }}
         </div>
         <div>
         <p>差引総支給額</p>
-        <input id="netIncome" class="numeric" type="text" name="netIncome">
+        {{ Form::text('netIncome', null, ['class' => 'numeric', 'id' => 'netIncome']) }}
         </div>
         </div>
-        <input type="hidden" name="yearMonth" value="">
+        {{ Form::hidden('yearMonth', '') }}
         <p>入力が完了したら下のボタンを押下して下さい</p>
-        <input id="submit" type="submit" value="上記の内容で所得の登録を行う">
+        {{ Form::button('上記の内容で所得の登録を行う', ['class' => '', 'id' => 'submit', 'type' => 'submit']) }}
     </form>
-        <br>
-        <br>
-        <br>
-        <br>
         @include('components.linkToTop')
     </div>
 </body>

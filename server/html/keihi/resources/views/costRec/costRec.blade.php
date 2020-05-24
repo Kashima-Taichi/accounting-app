@@ -20,35 +20,35 @@
         <div class="date">
             <div class="year-parts">
                 <p>年数を入力して下さい</p>
-                <input type="text" name="year" class="year" id="year" value="{{ $reuseYear ?? date('Y') }}">
+                {{ Form::text('year', $reuseYear ?? date('Y'), ['class' => 'year', 'id' => 'year']) }}
             </div>
             <div class="month-parts">
                 <p>月数を入力して下さい</p>
-                <input type="text" name="month" class="month" id="month" value="{{ $reuseMonth ?? date('n') }}">
+                {{ Form::text('month', $reuseMonth ?? date('n'), ['class' => 'month', 'id' => 'month']) }}
             </div>
             <div class="day-parts">
                 <p>日数を入力して下さい</p>
-                <input type="text" name="day" class="day" id="day" value="{{ $reuseDay ?? date('j') }}">
+                {{ Form::text('day', $reuseDay ?? date('j'), ['class' => 'day', 'id' => 'day']) }}
             </div>
         </div>
 
         <div class="account-parts">
             <p>科目を選択して下さい：</p>
-            {!! Form::select('accountName', App\Models\Account::accountsList(), null, ['id' => 'account', 'class' => 'account','required' => 'required']) !!}
+            {!! Form::select('accountName', App\Models\Account::accountsList(), null, ['id' => 'account', 'class' => 'account', 'required' => 'required']) !!}
         </div>
 
         <div class="price-parts">
             <p>金額を入力して下さい：</p>
-            <input type="text" id="price" name="price" class="price numeric">
+            {{ Form::text('price', null, ['id' => 'price', 'class' => 'price numeric']) }}
         </div>
         
         <div class="journal-parts">
             <p>摘要の入力:</p>
-            <textarea name="journal" id="journal" class="journal"></textarea>
+            {{ Form::textarea('journal', null, [ 'size' => '3x1','class' => 'journal', 'id' => 'journal']) }}
         </div>
 
         <br>
-        <button class="submit" id="submit" type="submit">送信する</button>
+        {{ Form::button('送信する', ['class' => 'submit', 'id' => 'submit', 'type' => 'submit']) }}
         <div class="display-result">
             {{ $msg ?? '' }}
         </div>
