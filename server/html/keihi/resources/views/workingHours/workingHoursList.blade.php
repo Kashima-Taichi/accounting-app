@@ -22,9 +22,9 @@
                 <td><a id="link" href="{{ action('WorkingHoursController@IndividualHours', $attendanceDatum->id) }}">{{ $attendanceDatum->id }}</a></td>
                 <td>{{ $attendanceDatum->year }}</td>
                 <td>{{ $attendanceDatum->month }}</td>
-                <td>{{ $attendanceDatum->fixedTime }}</td>
-                <td>{{ $attendanceDatum->overTime }}</td>
-                <td>{{ $attendanceDatum->fixedTime + $attendanceDatum->overTime }}</td>
+                <td>{{ sprintf('%0.2f', $attendanceDatum->fixedTime) }}</td>
+                <td>{{ sprintf('%0.2f', $attendanceDatum->overTime) }}</td>
+                <td>{{ sprintf('%0.2f', $attendanceDatum->fixedTime + $attendanceDatum->overTime) }}</td>
             </tr>
         @endforeach
     </table>
