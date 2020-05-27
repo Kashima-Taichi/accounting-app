@@ -32,7 +32,7 @@
                 datasets: [{
                     label: labelData['year'] + "年" + labelData['month'] + "月" + "経費計上折れ線グラフ日別推移 (単位：円)",
                     type: "line",
-                    fill: true,
+                    fill: false,
                     data: dataCosts,
                     borderColor: "rgb(154, 162, 235)",
                     yAxisID: "y-axis-1",
@@ -50,9 +50,9 @@
                         type: "linear",
                         position: "left",
                         ticks: {
-                            max: 30000, // ここにマックスの金額を渡して調整する
-                            min: 0,
-                            stepSize: 1500
+                            max: 40000, // ここにマックスの金額を渡して調整する
+                            min: -40000,
+                            stepSize: 1000
                         },
                     }],
                 },
