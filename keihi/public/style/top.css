@@ -1,4 +1,4 @@
-html, body {
+body {
     background-image: url("./img/background.jpg");
     background-size: cover;
     background-color: #fff;
@@ -19,12 +19,6 @@ html, body {
     justify-content: center;
 }
 
-.links-vertical {
-     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .pad {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -34,18 +28,10 @@ html, body {
     position: relative;
 }
 
-.top-right {
-    position: absolute;
-    right: 10px;
-    top: 18px;
-}
-
-.content {
-    text-align: center;
-}
-
-.title {
-    font-size: 44px;
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #link {
@@ -56,10 +42,12 @@ html, body {
     letter-spacing: .1rem;
     text-decoration: none;
     text-transform: uppercase;
+    margin-bottom: 30px;
 }
 
 .m-b-md {
     margin-bottom: 30px;
+    font-size: 44px;
 }
 
 #link:hover {

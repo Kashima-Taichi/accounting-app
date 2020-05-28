@@ -20,9 +20,6 @@
                     <a href="<?php echo url('costrec/costrec'); ?>" id="link">経費の計上を行う</a>
                     <a href="<?php echo url('costlist/selectyearmonthcostlist'); ?>" id="link">経費明細を参照する</a>
                     <a href="<?php echo url('costaccountcontent/selectyearmonthcostaccount'); ?>" id="link">科目別に経費計上実績を参照する</a>
-                </div>
-                <br>
-                <div>
                     <a href="<?php echo url('costlist/toptencosts'); ?>" id="link">計上金額のトップ10位を見る</a>
                     <a href="<?php echo url('/'); ?>" id="link">アプリのトップページへ戻る</a>
                 </div>
