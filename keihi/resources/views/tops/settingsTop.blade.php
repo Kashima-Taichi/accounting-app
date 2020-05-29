@@ -20,6 +20,7 @@
                 <div class="links">
                     <a href="<?php echo url('accounts/recordaccounts'); ?>" id="link">勘定科目の登録</a>
                     <a href="<?php echo url('accounts/refaccounts'); ?>" id="link">勘定科目の参照</a>
+                    <a href="<?php echo url('images/changebackground'); ?>" id="link">背景画像の変更</a>
                     <a href="<?php echo url('/'); ?>" id="link">アプリのトップページへ戻る</a>
                 </div>
             </div>
