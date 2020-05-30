@@ -16,6 +16,7 @@
     <th class="price">金額</th>
     </tr>
 
+    <!-- 所得 -->
     @if (!empty($salaryForPL) === true)
     <tr class="netincome">
         <td>手取給与</td>
@@ -23,6 +24,7 @@
     </tr>
     @endif
 
+    <!-- 経費 -->
     @if (!empty($costsForPL) === true)
         <?php $cost = 0; ?>
     @foreach ($costsForPL as $costForPL)
@@ -46,6 +48,7 @@
     </tr>
     @endif
 
+    <!-- 稼働時間 -->
     @if (!empty($hoursForPL) === true)
     <tr>
         <td>総労働時間</td>

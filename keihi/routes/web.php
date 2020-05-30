@@ -163,6 +163,9 @@ Route::post('incomeedit/incomeeditdone', 'IncomeController@incomeEditExcute');
 // 選択された年月に基づきPLを参照する
 Route::post('outputpl/referencepl', 'OutputPLController@referencePL');
 
+// 選択された年月に基づきPLを参照する
+Route::post('outputpl/referencepls', 'OutputPLController@referencePLs');
+
 
 /*
 * 稼働時間関係のルーティング
@@ -196,6 +199,9 @@ Route::post('/workinghours/workinghourseditdone', 'WorkingHoursController@workin
 
 // PL出力
 Route::get('outputpl/selectyearmonthpl', 'SelectYearMonthController@yearMonthSelectorForPl');
+
+// PL出力(複数月分)
+Route::get('outputpl/selectyearmonthpls', 'SelectYearMonthController@yearMonthSelectorForPls');
 
 // 科目別の経費計上実績の参照
 Route::get('/costaccountcontent/selectyearmonthcostaccount', 'SelectYearMonthController@yearMonthSelectorForBeforeFilter');

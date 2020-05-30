@@ -52,6 +52,14 @@ class SelectYearMonthController extends Controller
         'action' => '/outputpl/referencepl', 'inputVal' => 'PL出力']);
     }
 
+    // PL出力複数月 model 
+    public function yearMonthSelectorForPls() {
+        $yearSelectors = Salary::groupBy('year')->get('year');
+        $monthSelectors = Salary::groupBy('month')->get('month');
+        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '個人PLの参照', 'h2' => '年月を選択してPLを出力しよう！', 
+        'action' => '/outputpl/referencepls', 'inputVal' => '指定した年月から過去2ヶ月分のPL出力']);
+    }
+
     // 円グラフ model 
     public function yearMonthSelectorForPieChart() {
         $yearSelectors = Cost::groupBy('year')->get('year');
