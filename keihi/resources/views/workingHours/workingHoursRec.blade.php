@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
-    <title>経費の計上</title>
+    <title>稼働時間の計上</title>
 </head>
 <body>
     @if (count($errors) > 0)
@@ -13,7 +13,7 @@
     @if (!empty($notice))
         <h3>ご入力されました年月は登録されております</h3>
     @endif
-    <h2>経費の計上を行う</h2>
+    <h2>稼働時間の計上を行う</h2>
     <form action="/workinghours/workinghoursrec" method="post">
         @csrf
         <p>年数を入力してください</p>
