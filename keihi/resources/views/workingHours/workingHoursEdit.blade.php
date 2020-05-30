@@ -13,15 +13,15 @@
     <h2>{{ $wantEditHours->year }}年{{ $wantEditHours->month }}月度の稼働時間の修正を行う</h2>
     <form action="/workinghours/workinghourseditdone" method="post">
         @csrf
-        <input type="hidden" name="id" value="{{ $wantEditHours->id }}">
-        <input type="hidden" name="year" value="{{ $wantEditHours->year }}">
-        <input type="hidden" name="year" value="{{ $wantEditHours->month }}">
-        <p>定時間を入力してください</p>
-        <input type="text" id="fixed-time" name="fixedTime" class="fixed-time" value="{{ $wantEditHours->fixedTime }}">
-        <p>残業時間を入力してください</p>
-        <input type="text" id="over-time" name="overTime" class="over-time" value="{{ $wantEditHours->overTime }}">
+        {{ Form::hidden('id', $wantEditHours->id) }}
+        {{ Form::hidden('year', $wantEditHours->year) }}
+        {{ Form::hidden('month', $wantEditHours->month) }}
+        <p>定時間を修正してください</p>
+        {{ Form::text('fixedTime', $wantEditHours->fixedTime, ['class' => 'fixed-time', 'id' => 'fixed-time']) }}
+        <p>残業時間を修正してください</p>
+        {{ Form::text('overTime', $wantEditHours->overTime, ['class' => 'over-time', 'id' => 'over-time']) }}
         <br>
-        <input class="submit" id="submit" type="submit" value="送信する">
+        {{ Form::button('送信する', ['class' => 'submit', 'id' => 'submit', 'type' => 'submit']) }}
         <br>
         <br>
         <div class="display-result">

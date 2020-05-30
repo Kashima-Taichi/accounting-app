@@ -17,16 +17,16 @@
     <form action="/workinghours/workinghoursrec" method="post">
         @csrf
         <p>年数を入力してください</p>
-        <input type="text" id="year" name="year" class="year">
+        {{ Form::text('year', date('Y'), ['class' => 'year', 'id' => 'year']) }}
         <p>月数を入力してください</p>
-        <input type="text" id="month" name="month" class="month">
+        {{ Form::text('month', date('n'), ['class' => 'month', 'id' => 'month']) }}
         <p>定時間を入力してください</p>
-        <input type="text" id="fixed-time" name="fixedTime" class="fixed-time">
+        {{ Form::text('fixedTime', null, ['id' => 'fixed-time', 'class' => 'fixed-time']) }}
         <p>残業時間を入力してください</p>
-        <input type="text" id="over-time" name="overTime" class="over-time">
+        {{ Form::text('overTime', null, ['id' => 'over-time', 'class' => 'over-time']) }}
         <br>
-        <input type="hidden" name="yearMonth" value="">
-        <input class="submit" id="submit" type="submit" value="送信する">
+        {{ Form::hidden('yearMonth', '') }}
+        {{ Form::button('送信する', ['class' => 'submit', 'id' => 'submit', 'type' => 'submit']) }}
         <br>
         <br>
         <div class="display-result">
