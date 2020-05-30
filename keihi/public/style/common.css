@@ -1,5 +1,5 @@
 body {
-    background-image: url("./img/background.jpg");
+    background-image: url("../storage/background.jpg");
     background-size: cover;
     display: block;
     text-align: center;
