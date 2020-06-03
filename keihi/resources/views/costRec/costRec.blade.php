@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/style/costrec.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
-    <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('/js/costrecord.js') }}"></script>
+    @include('components.CallVueJsCDN')
     <title>経費の計上</title>
 </head>
 <body>
@@ -48,12 +47,16 @@
         </div>
 
         <br>
-        {{ Form::button('送信する', ['class' => 'submit', 'id' => 'submit', 'type' => 'submit']) }}
+        <div id="submit">
+            {{ Form::button('送信する', ['class' => 'submit', 'type' => 'submit', 'v-on:click' => 'onclick']) }}
+        </div>
         <div class="display-result">
             {{ $msg ?? '' }}
         </div>
     </form>
         @include('components.linkToTop')
     </div>
+    <?php /* ViewModelはid設定した要素より後ろで読み込む */ ?>
+    <script src="{{ asset('/js/costrecord.js') }}"></script>
 </body>
 </html>
