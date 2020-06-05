@@ -12,8 +12,8 @@ new Vue({
 
             // 配列内に空文字があるかどうかの判定
             // JavaScript では null ないし空文字を条件式において false と判定する
-            var result = costInput.some(item => item === false);
-            if (result === false) {
+            var result = costInput.some(item => item === null);
+            if (result === null) {
                 alert('記入されていない項目があります。');
                 e.preventDefault();
             }
