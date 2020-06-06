@@ -33,7 +33,6 @@ class CostListController extends Controller
     // 経費計上実績を削除する model
     public function costDelete($id) {
         // 削除実行後に削除したものを保存するテーブル作りを検討
-        $toBeDeletedData = Cost::find($id);
         Cost::destroy($id);
         return view('costList.costDelete', ['id' => $id]);
     }

@@ -14,7 +14,6 @@ class AccountController extends Controller
         // バリデーション、データの登録
         $this->validate($request, Account::$rules);
         $account = new Account;
-        Log::debug($account);
         $formContents = $request->all();
         // 送信
         unset($formContents['_token']);
@@ -24,7 +23,6 @@ class AccountController extends Controller
 
     public function outputAccountsList() {
         $accountsData = Account::paginate(13);
-        Log::debug($accountsData);
         return view('accounts/refAccounts', ['accountsData' => $accountsData]);
     }
 }
