@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/refpl.css') }}">
-    <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
     <title>個人PL参照</title>
 </head>
 <body>

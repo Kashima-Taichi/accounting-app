@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
-    <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('/js/selectYearMonth.js') }}"></script>
+    @include('components.CallVueJsCDN')
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -35,11 +34,13 @@
         @endif
         <br>
         <br>
-        <input class="submit" id="submit" type="submit" value="{{ $inputVal }}">
+        <input class="submit" id="submit" type="submit" value="{{ $inputVal }}" v-on:click="onclick">
         <br>
     </form>
     </div>
     <br>
     @include('components.linkToTop')
+    <?php /* ViewModelはid設定した要素より後ろで読み込む */ ?>
+    <script src="{{ asset('/js/selectYearMonth.js') }}"></script>
 </body>
 </html>

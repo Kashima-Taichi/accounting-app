@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/style/costrec.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
-    <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('/js/costedit.js') }}"></script>
-    <script src="{{ asset('/js/isNumeric.js') }}"></script>
+    @include('components.CallVueJsCDN')
     <title>経費実績の修正</title>
 </head>
 <body>
@@ -16,35 +14,45 @@
     <br>
     <form action="/costlist/costeditdone" method="post">
         @csrf
-        <p>年数を入力して下さい</p>
-        <input type="text" name="year" class="year" id="year" value="{{ $record->year }}">
-        <p>月数を入力して下さい</p>
-        <input type="text" name="month" class="month" id="month" value="{{ $record->month }}">
-        <p>日数を入力して下さい</p>
-        <input type="text" name="day" class="day" id="day" value="{{ $record->day }}">
-        <p>必要であれば科目を選択し直して下さい</p>
-        <p>現在の勘定科目：{{ $record->accountName }}</p>
-        <select class="account" name="accountName">
-            <option value="{{ $record->accountName }}">{{ $record->accountName }}</option>
-            @foreach(config('accountMst') as $key => $value)
-                <option value="{{ $value }}">{{ $value }}</option>
-            @endforeach
-        </select>
-        <br>
-        <br>
-        <p>金額を入力し直して下さい</p>
-        <p>現在の計上金額：{{ $record->price }}</p>
-        <input type="text" id="price" name="price" class="price numeric" value="{{ $record->price }}">
-        <br>
-        <br>
-        <p>摘要の修正もできます:</p>
-        <textarea name="journal" id="journal" class="journal">{{ $record->journal }}</textarea>
-        <br>
-        <br>
-        <input type="hidden" name="id" value="{{ $record->id }}">
-        <input class="submit" id="submit" type="submit" value="経費の修正を行う">
-        <br>
-        <br>
+
+        <div class="date">
+            <div class="year-parts">
+                <p>年数を入力して下さい</p>
+                {{ Form::text('year', $record->year, ['class' => 'year', 'id' => 'year']) }}
+            </div>
+            <div class="month-parts">
+               <p>月数を入力して下さい</p>
+                {{ Form::text('month', $record->month, ['class' => 'month', 'id' => 'month']) }}
+            </div>
+            <div class="day-parts">
+                <p>日数を入力して下さい</p>
+                {{ Form::text('day', $record->day, ['class' => 'day', 'id' => 'day']) }}
+            </div>        
+        </div>
+
+        <div class="account-parts">
+            <p>勘定科目の修正ができます　　</p>
+            <p>現在の勘定科目：{{ $record->accountName }}</p>
+            {!! Form::select('accountName', App\Models\Account::accountsList(), $record->accountName, ['id' => 'account', 'class' => 'account', 'required' => 'required']) !!}
+        </div>
+
+        <div class="price-parts">
+            <p>金額を入力し直して下さい</p>
+            <p>現在の計上金額：{{ $record->price }}</p>
+            {{ Form::text('price', $record->price, ['id' => 'price', 'class' => 'price']) }}
+        </div>
+
+        <div class="journal-parts">
+            <p>摘要の修正もできます:</p>
+            {{ Form::textarea('journal', $record->journal, [ 'size' => '3x1', 'class' => 'journal', 'id' => 'journal']) }}
+        </div>
+
+        {{ Form::hidden('id', $record->id) }}
+
+        <div id="submit">
+            {{ Form::button('修正する', ['class' => 'submit', 'type' => 'submit', 'v-on:click' => 'onclick']) }}
+        </div>
+
         <div class="display-result">
             {{ $msg ?? '' }}
         </div>
@@ -52,5 +60,7 @@
         <br>
         @include('components.linkToTop')
     </div>
+    <?php /* ViewModelはid設定した要素より後ろで読み込む */ ?>
+    <script src="{{ asset('/js/costrecord.js') }}"></script>
 </body>
 </html>

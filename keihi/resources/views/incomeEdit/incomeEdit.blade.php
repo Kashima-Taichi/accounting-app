@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/style/incomeRecord.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
-    <script src="{{ asset('/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('/js/Incomerecord.js') }}"></script>
-    <script src="{{ asset('/js/isNumeric.js') }}"></script>
+    @include('components.CallVueJsCDN')
     <title>所得の計上</title>
 </head>
 <body>
@@ -72,5 +70,7 @@
         <br>
         @include('components.linkToTop')
     </div>
+    <?php /* ViewModelはid設定した要素より後ろで読み込む */ ?>
+    <script src="{{ asset('/js/Incomerecord.js') }}"></script>
 </body>
 </html>

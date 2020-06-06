@@ -27,7 +27,7 @@ new Vue({
 
             // 入力された金額が数値かをチェック
             var valCheck = costInput[3].match(/^-?[1-9][0-9]+$/);
-            if (check === null) {
+            if (valCheck === null) {
                 alert('金額を0から始めると経費の計上は行えません');
                 e.preventDefault();
             }

@@ -38,7 +38,7 @@
 
         <div class="price-parts">
             <p>金額を入力して下さい：</p>
-            {{ Form::text('price', null, ['id' => 'price', 'class' => 'price numeric']) }}
+            {{ Form::text('price', null, ['id' => 'price', 'class' => 'price']) }}
         </div>
         
         <div class="journal-parts">
