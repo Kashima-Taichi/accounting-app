@@ -105,6 +105,9 @@ Route::post('/costcsv/writecsv', 'DemoController@csv');
 // 年月選択後に円グラフを出力する
 Route::post('/costgraph/outputpiechart', 'GraphController@createPiechart');
 
+// 過去60日間以上の経費計上実績を参照する
+Route::post('/costgraph/outputlinegraphdailycostpast', 'GraphController@createLineGraphPast');
+
 // 年月選択後に折れ線グラフを出力する 単月
 Route::post('/costgraph/outputlinegraphdailycost', 'GraphController@createLineGraph');
 
@@ -223,6 +226,12 @@ Route::get('/costgraph/selectyearmonthlinegraphdailycost', 'SelectYearMonthContr
 
 // 折れ線グラフ　当月内の日別の経費の計上推移(複数)
 Route::get('/costgraph/selectyearmonthlinegraphdailycosts', 'SelectYearMonthController@yearMonthSelectorForLineGraphsDaily');
+
+// 折れ線グラフ　過去60日以上の計上実績
+Route::get('/costgraph/selectyearmonthlinegraphpastcosts', function () {
+        return view('selectYearMonth.selectYearMonth', ['title' => '過去60日以上の経費計上実績の参照', 'h2' => '過去60日以上の経費計上実績の参照', 
+    'action' => '/costgraph/outputlinegraphdailycostpast', 'inputVal' => '指定した条件に基づいて折れ線グラフを参照する']);
+});
 
 // 月別科目別の経費計上推移
 Route::get('/costgraph/selectyearmonthlinegraphmonthaccount', 'SelectYearMonthController@yearMonthSelectorForLineGraphMonthAccount');

@@ -23,6 +23,14 @@ class GraphController extends Controller
         return view('costGraph.refPiechart', ['piechartData' => $piechartData, 'param' => $param]);
     }
 
+    // 過去60日間以上の経費計上実績を参照する DB
+    public function createLineGraphPast(Request $request) {
+        $lineGraphData = DB::select('SELECT date, sum(price) dayAmount FROM costs GROUP BY date ORDER BY date DESC LIMIT ?', [$request->pastDays]);
+        Log::debug($lineGraphData);
+        Log::debug($request->pastDays);
+        return view('costGraph.refLinegraphPast', ['lineGraphData' => $lineGraphData, 'request' => $request->pastDays]);
+    }
+
     // 単月の経費計上実績を参照する DB
     public function createLineGraph(Request $request) {
         $param = ['year' => $request->year, 'month' => $request->month];

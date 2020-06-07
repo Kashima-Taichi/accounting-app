@@ -14,8 +14,13 @@
         @csrf
 
         <!-- 抽出条件に年月が不要な場合 -->
-        @if ($action != '/costgraph/outputlinegraphMonthAccount')
+        @if ($action != '/costgraph/outputlinegraphMonthAccount' && $action != '/costgraph/outputlinegraphdailycostpast')
         @include('components.selectYearMonthDb')
+        @endif
+
+        <!-- 過去2ヶ月以上前の経費実績を参考にする場合 -->
+        @if ($action == '/costgraph/outputlinegraphdailycostpast')
+        @include('components.selectPastDays')
         @endif
 
         <!-- 抽出条件に昇順降順がある場合 -->
