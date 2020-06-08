@@ -46,8 +46,6 @@
             {{ Form::textarea('journal', null, [ 'size' => '3x1','class' => 'journal', 'id' => 'journal']) }}
         </div>
 
-        {{ Form::hidden('date', date('Y') . '-' . date('m') . '-' . date('d')) }}
-
         <br>
         <div id="submit">
             {{ Form::button('送信する', ['class' => 'submit', 'type' => 'submit', 'v-on:click' => 'onclick']) }}

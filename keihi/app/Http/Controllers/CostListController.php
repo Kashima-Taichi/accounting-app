@@ -8,7 +8,6 @@ use Log;
 
 class CostListController extends Controller
 {
-
     // 選択された年と月をもとに経費明細を参照する model
     public function getCostList(Request $request) {
         if ($request->day === 'select') {
@@ -45,11 +44,11 @@ class CostListController extends Controller
 
     // 経費計上実績の修正処理 model
     public function postEdit(Request $request) {
+        $request['date'] = $request['year'] . '-' . (strlen($request['month']) === 1 ? '0' . $request['month'] : $request['month']) . '-' . (strlen($request['day']) === 1 ? '0' . $request['day'] : $request['day']);
         $this->validate($request, Cost::$rules);
         $toBeEditedData = Cost::find($request->id);
-        $requestData = $request->all();
-        unset($requestData['_token']);
-        $toBeEditedData->fill($requestData)->save();
+        unset($request['_token']);
+        $toBeEditedData->fill($request->all())->save();
         return view('costList.costEditDone', ['editedRecord' => $toBeEditedData]);
     }
 
