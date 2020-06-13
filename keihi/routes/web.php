@@ -90,6 +90,9 @@ Route::post('/costlist/costeditdone', 'CostListController@postEdit');
 // 計上された経費のトップ10位を見る
 Route::post('/costlist/toptencostslist', 'CostListController@getTopTenCosts');
 
+// カレンダー参照機能
+Route::post('costlist/getcalender', 'CostListController@getCalendar');
+
 
 /*
 * CSV出力関係のルーティング
@@ -235,6 +238,9 @@ Route::get('/costgraph/selectyearmonthlinegraphpastcosts', function () {
 
 // 月別科目別の経費計上推移
 Route::get('/costgraph/selectyearmonthlinegraphmonthaccount', 'SelectYearMonthController@yearMonthSelectorForLineGraphMonthAccount');
+
+// 経費計上カレンダー
+Route::get('costlist/calender', 'SelectYearMonthController@yearMonthSelectorforCalender');
 
 
 /*

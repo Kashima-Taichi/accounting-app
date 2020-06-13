@@ -91,4 +91,12 @@ class SelectYearMonthController extends Controller
         ['accounts' => $accounts, 'title' => '月別科目別の経費実績の計上推移の参照', 'h2' => '月別科目別の経費実績の計上推移の参照', 
         'action' => '/costgraph/outputlinegraphMonthAccount', 'inputVal' => '指定した条件に基づいて折れ線グラフを参照する']);
     }
+
+    // 折れ線グラフ月別科目別推移 model
+    public function yearMonthSelectorforCalender() {
+        $yearSelectors = Cost::groupBy('year')->get('year');
+        $monthSelectors = Cost::groupBy('month')->get('month');
+        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '経費計上カレンダーの出力', 'h2' => '経費計上カレンダーの出力', 
+        'action' => 'getcalender', 'inputVal' => '経費計上カレンダーを出力する']);
+    }
 }
