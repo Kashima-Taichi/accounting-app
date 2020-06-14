@@ -32,11 +32,11 @@ services:
   db:
     image: mysql:8.0
     ports:
-      - 23306:3306
+      - 13306:3306
     volumes:
-      - db-store:/var/lib/mysql
+      - ./data-source:/var/lib/mysql
       - ./logs:/var/log/mysql
-      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./settings/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_USER=${DB_USER}
@@ -44,9 +44,10 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_PASS}
       - TZ=${TZ}
 
-volumes:
-  db-store:
-
 # http://127.0.0.1:10080/
 # docker-compose up -d --build
+# docker-compose up -d --build --no-cache mysql
 # docker-compose down
+
+# MySQLのコンテナにアクセス
+# docker-compose exec db bash -c 'mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'
