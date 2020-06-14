@@ -86,7 +86,7 @@ class CostListController extends Controller
         // 送信された月の初日の曜日情報を取得
         $youbiNum = $lineGraphData[0]->dateCarbon->dayOfWeek;
         
-        // 初日が日曜日ではない場合に、差分の日付を取得
+        // 初日が日曜日ではない場合に、差分の前月の日付を取得
         if ($youbiNum !== 0) {
             $loopDay->subDays($youbiNum);
             for ($i=0; $i < $youbiNum; $i++) { 
@@ -107,8 +107,9 @@ class CostListController extends Controller
                 $loopDay->addDay();
             }
         }
-        // データの最終日の曜日を取得
+        // データの最終日の曜日を取得 直前のループで来月の初日に戻っているので、1日引いて曜日の数値をとる
         $lastYoubiNum = $loopDay->subDay()->dayOfWeek;
+        // 次のループに合わせて、日付を1日足して戻す
         $loopDay->addDay();
 
         // 最終日が土曜日でなければ、翌月の最初の土曜日までの日付情報を取得
