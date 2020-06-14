@@ -46,12 +46,7 @@ services:
 
 # http://127.0.0.1:10080/
 # docker-compose up -d --build
-# docker-compose up -d --build --no-cache mysql
 # docker-compose down
 
 # MySQLのコンテナにアクセス
 # docker-compose exec db bash -c 'mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'
-
-# ALTER USER 'TAICHI'@'%' IDENTIFIED WITH mysql_native_password BY 'secret';
-
-# SELECT user, host, plugin FROM mysql.user;
