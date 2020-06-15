@@ -259,3 +259,6 @@ Route::post('/accounts/recordaccountsdone', 'AccountController@recordAccounts');
 
 // 勘定科目一覧参照画面へ遷移
 Route::get('/accounts/refaccounts', 'AccountController@outputAccountsList');
+
+// データベースのデータをダンプする方法を紹介するページへ遷移
+Route::get('/dump', 'ConfigController@dumpDatabase');

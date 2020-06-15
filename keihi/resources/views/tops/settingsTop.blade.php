@@ -18,6 +18,7 @@
                 <div class="links">
                     <a href="<?php echo url('accounts/recordaccounts'); ?>" id="link">勘定科目の登録</a>
                     <a href="<?php echo url('accounts/refaccounts'); ?>" id="link">勘定科目の参照</a>
+                    <a href="<?php echo url('dump'); ?>" id="link">データベースのダンプ方法を調べる</a>
                     <a href="<?php echo url('/'); ?>" id="link">アプリのトップページへ戻る</a>
                 </div>
             </div>

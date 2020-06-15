@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Log;
 
 class CostRecordController extends Controller {
+
     public function postCost(Request $request) {
         $request['date'] = $request['year'] . '-' . (strlen($request['month']) === 1 ? '0' . $request['month'] : $request['month']) . '-' . (strlen($request['day']) === 1 ? '0' . $request['day'] : $request['day']);
         // バリデーション
