@@ -4,7 +4,7 @@ body {
     display: block;
     text-align: center;
 
-    color: #008BBB;
+    color: #33FF99;
     padding: 0 25px;
     font-size: 20px;
     font-family: 'Nunito', sans-serif;
@@ -14,7 +14,7 @@ body {
 }
 
 a {
-    color: #008BBB;
+    color: #33FF99;
     margin-top: 5px;
     align-items: center;
     display: flex;

@@ -9,7 +9,7 @@
     height: 60px;
     font-size: 20px;
 
-    border: 2px solid #008BBB;
+    border: 2px solid #33FF99;
     border-radius: 0.67em;
     padding: 0.5em;
     background-color: snow;
@@ -80,8 +80,8 @@
     -moz-box-shadow: 2px 2px 3px 1px #666;
     -webkit-box-shadow: 2px 2px 3px 1px #666;
     text-shadow: 1px 1px 2px #000;
-    background: #008BBB;
-    background: #008BBB;
+    background: #33FF99;
+    background: #33FF99;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
