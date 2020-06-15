@@ -259,14 +259,3 @@ Route::post('/accounts/recordaccountsdone', 'AccountController@recordAccounts');
 
 // 勘定科目一覧参照画面へ遷移
 Route::get('/accounts/refaccounts', 'AccountController@outputAccountsList');
-
-
-/* 背景画像の設定 */
-
-// 背景画像登録画面へ遷移
-Route::get('/images/changebackground', function () {
-    return view('images/changeBackground');
-});
-
-// 画像の登録処理
-Route::post('images/changebackgrounddone', 'ImageController@changeBackgroundImage');
