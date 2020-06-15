@@ -8,9 +8,9 @@ class ConfigController extends Controller
 {
     // 
     public function dumpDatabase() {
-        $dataBase = env('DB_DATABASE', false);
-        $userName = env('DB_USERNAME', false);
-        $passWord = env('DB_PASSWORD', false);
+        $dataBase = env('DB_DATABASE', 'SAISAN');
+        $userName = env('DB_USERNAME', 'TAICHI');
+        $passWord = env('DB_PASSWORD', 'secret');
         $hostName = 'localhost';
         $execDir = '/usr/bin/mysqldump';
         $destinationDir = '/var/lib/mysql/dump.sql';
