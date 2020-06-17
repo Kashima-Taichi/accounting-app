@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ConfigController extends Controller
 {
-    // 
+    // DBのダンプをする方法
     public function dumpDatabase() {
         $dataBase = env('DB_DATABASE', 'SAISAN');
         $userName = env('DB_USERNAME', 'TAICHI');
@@ -14,8 +14,8 @@ class ConfigController extends Controller
         $hostName = 'localhost';
         $execDir = '/usr/bin/mysqldump';
         $destinationDir = '/var/lib/mysql/dump.sql';
-        $enterContainer = 
+        $enterContainer = 'docker exec -it local_db bash';
         $sqlStatement = "{$execDir} --user={$userName} --password={$passWord} --host={$hostName} {$dataBase} > {$destinationDir}";
-        return view ('config.sqlDump', ['sqlStatement' => $sqlStatement]);
+        return view ('config.sqlDump', ['sqlStatement' => $sqlStatement, 'enterContainer' => $enterContainer]);
     }
 }

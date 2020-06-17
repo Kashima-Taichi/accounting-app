@@ -9,7 +9,11 @@
 <body>
     <h2>DBのダンプ方法</h2>
     <br>
-    <h4>{{ $sqlStatement }}</h4>
+    <p>DOMの検証からコマンドをコピペしてね！</p>
+    <br>
+    <p>{{ $enterContainer }}</p>
+    <br>
+    <p>{{ $sqlStatement }}</p>
     <br>
     @include('components.linkToTop')
 </body>
