@@ -44,6 +44,10 @@
 <th><?= number_format($recordedSalary['incomeTax']); ?></th>
 </tr>
 <tr>
+<th>住民税</th>
+<th><?= number_format($recordedSalary['residentTax']); ?></th>
+</tr>
+<tr>
 <th>その他の控除額</th>
 <th><?= number_format($recordedSalary['otherDeduction']); ?></th>
 </tr>

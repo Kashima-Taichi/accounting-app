@@ -57,6 +57,10 @@
         {{ Form::text('incomeTax', null, ['class' => 'numeric', 'id' => 'incomeTax']) }}
         </div>
         <div>
+        <p>住民税</p>
+        {{ Form::text('residentTax', null, ['class' => 'numeric', 'id' => 'residentTax']) }}
+        </div>
+        <div>
         <p>その他控除</p>
         {{ Form::text('otherDeduction', null, ['class' => 'numeric', 'id' => 'otherDeduction']) }}
         </div>

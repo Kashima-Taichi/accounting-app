@@ -44,6 +44,10 @@
 <th><?= number_format($IndivudualSalary['incomeTax']); ?></th>
 </tr>
 <tr>
+<th>住民税</th>
+<th><?= number_format($IndivudualSalary['residentTax']); ?></th>
+</tr>
+<tr>
 <th>その他の控除額</th>
 <th><?= number_format($IndivudualSalary['otherDeduction']); ?></th>
 </tr>

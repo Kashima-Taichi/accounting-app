@@ -20,6 +20,7 @@
     <th class="employeePension">厚生年金</th>
     <th class="employmentInsurance">雇用保険料</th>
     <th class="incomeTax">所得税</th>
+    <th class="residentTax">住民税</th>
     <th class="otherDeduction">その他控除</th>
     <th class="totalDeduction">控除額合計</th>
     <th class="netIncome">差引総支給額</th>
@@ -36,6 +37,7 @@
                 <td><?php echo number_format($incomeDatum->employeePension); ?></td>
                 <td><?php echo number_format($incomeDatum->employmentInsurance); ?></td>
                 <td><?php echo number_format($incomeDatum->incomeTax); ?></td>
+                <td><?php echo number_format($incomeDatum->residentTax); ?></td>
                 <td><?php echo number_format($incomeDatum->otherDeduction); ?></td>
                 <td><?php echo number_format($incomeDatum->totalDeduction); ?></td>
                 <td><?php echo number_format($incomeDatum->netIncome); ?></td>

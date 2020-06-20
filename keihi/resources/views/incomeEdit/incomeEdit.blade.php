@@ -49,6 +49,10 @@
         {{ Form::text('incomeTax', $selectedSalary->incomeTax, ['class' => 'numeric', 'id' => 'incomeTax']) }}
         </div>
         <div>
+        <p>所得税</p>
+        {{ Form::text('residentTax', $selectedSalary->residentTax, ['class' => 'numeric', 'id' => 'residentTax']) }}
+        </div>
+        <div>
         <p>その他控除</p>
         {{ Form::text('otherDeduction', $selectedSalary->otherDeduction, ['class' => 'numeric', 'id' => 'otherDeduction']) }}
         </div>
