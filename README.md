@@ -1,7 +1,7 @@
 ## 家庭用経理システム(収支管理システム)
 
-ターミナルを起動
-docker-compose up -d --build　を実行
+ターミナルを起動下記コマンドを実行
+docker-compose up -d --build
 http://127.0.0.1:10080/
 でアクセス可能
 
