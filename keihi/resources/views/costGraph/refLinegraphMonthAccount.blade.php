@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/pieChart.css') }}">
+    <link rel="stylesheet" href="{{ asset('/style/Chart.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
     <title>{{ $param }}の計上推移</title>
 </head>
@@ -32,7 +32,7 @@
                 datasets: [{
                     label: labelData　+ "の計上推移",
                     type: "line",
-                    fill: true,
+                    fill: false,
                     data: dataCosts,
                     borderColor: "rgb(198, 255, 170)",
                     yAxisID: "y-axis-1",

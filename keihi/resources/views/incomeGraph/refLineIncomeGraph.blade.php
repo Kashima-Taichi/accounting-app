@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/pieChart.css') }}">
+    <link rel="stylesheet" href="{{ asset('/style/Chart.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
     <title>手取り金額の計上推移</title>
 </head>
@@ -33,7 +33,7 @@
                     // グラフのタイトル
                     label: "手取り額の計上推移",
                     type: "line",
-                    fill: true,
+                    fill: false,
                     // グラフで使用する数値データ
                     data: dataNetincome,
                     borderColor: "rgb(255, 127, 80)",

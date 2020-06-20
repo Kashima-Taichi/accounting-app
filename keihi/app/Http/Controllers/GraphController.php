@@ -8,7 +8,6 @@ use App\Models\Salary;
 use App\Models\Hour;
 use DB;
 use Log;
-// 多次元配列のソート参考：https://qiita.com/shy_azusa/items/54dadc55e3e71cde1445
 
 class GraphController extends Controller
 {
@@ -69,5 +68,18 @@ class GraphController extends Controller
         }
         array_multisort($sort, SORT_ASC, $hourData);
         return view('workingHoursGraph.refHoursGraph', ['hourData' => $hourData]);
+    }
+
+    // 日別の経費計上合計金額を参照する
+    public function createLineGraphDailyAmount(Request $request) {
+        $param = ['year' => $request->year, 'month' => $request->month];
+        $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
+        foreach ($lineGraphData as $key => $value) {
+            if ($key !== 0) {
+                $lineGraphData[$key]->dayAmount = $lineGraphData[$key-1]->dayAmount + $lineGraphData[$key]->dayAmount;
+            }
+        }
+        Log::debug($lineGraphData);
+        return view('costGraph.refLinegraphDaylyAmount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
     }
 }
