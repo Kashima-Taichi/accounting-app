@@ -100,11 +100,19 @@ class SelectYearMonthController extends Controller
         'action' => 'getcalender', 'inputVal' => '経費計上カレンダーを出力する']);
     }
 
-    // 折れ線グラフ日別の経費計上合計額推移 model
+    // 折れ線グラフ日別の経費計上合計額推移(単月) model
     public function yearMonthSelectorForLineGraphDailyAmount() {
         $yearSelectors = Cost::groupBy('year')->get('year');
         $monthSelectors = Cost::groupBy('month')->get('month');
-        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '日別の経費計上合計額推移の参照', 'h2' => '日別の経費計上合計額を参照する', 
-        'action' => '/costgraph/outputlinegraphdailycostamount', 'inputVal' => '経費計上合計額の推移を参照する']);
+        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '日別の経費計上合計額推移の参照(単月)', 'h2' => '日別の経費計上合計額を参照する(単月)', 
+        'action' => '/costgraph/outputlinegraphdailycostamount', 'inputVal' => '経費計上合計額の推移を参照する(単月)']);
+    }
+
+    // 折れ線グラフ日別の経費計上合計額推移(複数月) model
+    public function yearMonthSelectorForLineGraphDailyAmounts() {
+        $yearSelectors = Cost::groupBy('year')->get('year');
+        $monthSelectors = Cost::groupBy('month')->get('month');
+        return view('selectYearMonth.selectYearMonth', ['yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors , 'title' => '日別の経費計上合計額推移の参照(複数月)', 'h2' => '日別の経費計上合計額を参照する(複数月)', 
+        'action' => '/costgraph/outputlinegraphdailycostamounts', 'inputVal' => '経費計上合計額の推移を参照する(複数月)']);
     }
 }

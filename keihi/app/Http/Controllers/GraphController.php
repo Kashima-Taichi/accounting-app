@@ -79,7 +79,28 @@ class GraphController extends Controller
                 $lineGraphData[$key]->dayAmount = $lineGraphData[$key-1]->dayAmount + $lineGraphData[$key]->dayAmount;
             }
         }
-        Log::debug($lineGraphData);
         return view('costGraph.refLinegraphDaylyAmount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
     }
+
+    // 日別の経費計上合計金額を参照する
+    public function createLineGraphDailyAmounts(Request $request) {
+        $param = ['year' => $request->year, 'month' => $request->month];
+        // 選択月のデータ取得
+        $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
+        foreach ($lineGraphData as $key => $value) {
+            if ($key !== 0) {
+                $lineGraphData[$key]->dayAmount = $lineGraphData[$key-1]->dayAmount + $lineGraphData[$key]->dayAmount;
+            }
+        }
+        // 選択月マイナス1月のデータ取得
+        $lineGraphDataMinusOne = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month - 1 GROUP BY day', $param);
+        foreach ($lineGraphDataMinusOne as $key => $value) {
+            if ($key !== 0) {
+                $lineGraphDataMinusOne[$key]->dayAmount = $lineGraphDataMinusOne[$key-1]->dayAmount + $lineGraphDataMinusOne[$key]->dayAmount;
+            }
+        }
+        return view('costGraph.refLinegraphDaylyAmounts', ['lineGraphData' => $lineGraphData, 'lineGraphDataMinusOne' => $lineGraphDataMinusOne, 'param' => $param]);
+    }
 }
+
+
