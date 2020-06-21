@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cost;
+use App\Models\Trashed_cost;
 use Illuminate\Http\Request;
 use Log;
 use DB;
@@ -33,14 +34,28 @@ class CostListController extends Controller
 
     // 経費計上実績を削除する model
     public function costDelete($id) {
-        // 削除実行後に削除したものを保存するテーブル作りを検討
+        // 経費データをゴミ箱テーブルへ移動させる処理
+        $beTrashedData = Cost::find($id);
+        DB::table('trashed_costs')->insert([
+            'id' => $beTrashedData->id,
+            'accountName' => $beTrashedData->accountName,
+            'price' => $beTrashedData->price,
+            'journal' => $beTrashedData->journal,
+            'year' => $beTrashedData->year,
+            'month' => $beTrashedData->month,
+            'day' => $beTrashedData->day,
+            'date' => $beTrashedData->date,
+            'created_at' => $beTrashedData->created_at,
+            'updated_at' => $beTrashedData->updated_at,
+        ]);
+        // 経費データを削除する処理
         Cost::destroy($id);
         return view('costList.costDelete', ['id' => $id]);
     }
 
     // 経費計上実績の修正ページへ経費データを渡す model
     public function costEdit($id) {
-        $record = Cost::where('id', $id)->first();
+        $record = Cost::find($id);
         return view('costList.costEdit', ['record' => $record]);        
     }
 
