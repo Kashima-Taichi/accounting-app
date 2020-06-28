@@ -13,7 +13,7 @@ class ConfigController extends Controller
         $passWord = env('DB_PASSWORD', 'secret');
         $hostName = 'localhost';
         $execDir = '/usr/bin/mysqldump';
-        $destinationDir = '/var/lib/mysql/dump.sql';
+        $destinationDir = '/var/lib/mysql/' . date('Y-m-d') . 'dump.sql';
         $enterContainer = 'docker exec -it local_db bash';
         $sqlStatement = "{$execDir} --user={$userName} --password={$passWord} --host={$hostName} {$dataBase} > {$destinationDir}";
         return view ('config.sqlDump', ['sqlStatement' => $sqlStatement, 'enterContainer' => $enterContainer]);
