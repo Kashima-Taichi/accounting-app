@@ -274,3 +274,11 @@ Route::get('/accounts/refaccounts', 'AccountController@outputAccountsList');
 
 // データベースのデータをダンプする方法を紹介するページへ遷移
 Route::get('/dump', 'ConfigController@dumpDatabase');
+
+
+/*
+ * ゴミ箱関係のルーティング 
+*/
+
+// ゴミ箱参照ページへのルーティング
+Route::get('costtrash/refconsttrash', 'CostTrashController@referenceCosttrash');
