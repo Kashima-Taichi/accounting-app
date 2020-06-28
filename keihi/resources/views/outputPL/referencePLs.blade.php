@@ -25,12 +25,12 @@
     <!-- 経費 -->
     <?php $costMinus = 0; ?>
     @foreach ($costsForPLMinus as $costForPLMinus)
-        <?php $costMinus += $costForPLMinus->accountAmount; ?>
+        <?php $costMinus += $costForPLMinus['accountAmount']; ?>
     @endforeach
     @foreach ($costsForPLMinus as $costForPLMinus)
     <tr>
-        <td>{{ $costForPLMinus->accountName }}</td>
-        <td><?= number_format($costForPLMinus->accountAmount) . ' ( ' . round($costForPLMinus->accountAmount / $costMinus, 4) * 100 . '% )'; ?></td>
+        <td>{{ $costForPLMinus['accountName'] }}</td>
+        <td><?= number_format($costForPLMinus['accountAmount']) . ' ( ' . round($costForPLMinus['accountAmount'] / $costMinus, 4) * 100 . '% )'; ?></td>
     </tr>
     @endforeach
     <tr class="costamount">
@@ -76,12 +76,12 @@
     <!-- 経費 -->
     <?php $cost = 0; ?>
     @foreach ($costsForPL as $costForPL)
-        <?php $cost += $costForPL->accountAmount; ?>
+        <?php $cost += $costForPL['accountAmount']; ?>
     @endforeach
     @foreach ($costsForPL as $costForPL)
     <tr>
-        <td>{{ $costForPL->accountName }}</td>
-        <td><?= number_format($costForPL->accountAmount) . ' ( ' . round($costForPL->accountAmount / $cost, 4) * 100 . '% )'; ?></td>
+        <td>{{ $costForPL['accountName'] }}</td>
+        <td><?= number_format($costForPL['accountAmount']) . ' ( ' . round($costForPL['accountAmount'] / $cost, 4) * 100 . '% )'; ?></td>
     </tr>
     @endforeach
     <tr class="costamount">

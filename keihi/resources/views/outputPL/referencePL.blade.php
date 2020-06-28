@@ -25,26 +25,26 @@
 
     <!-- 経費 -->
     @if (!empty($costsForPL) === true)
-        <?php $cost = 0; ?>
-    @foreach ($costsForPL as $costForPL)
-        <?php $cost += $costForPL->accountAmount; ?>
-    @endforeach
+            <?php $cost = 0; ?>
+        @foreach ($costsForPL as $costForPL)
+            <?php $cost += $costForPL['accountAmount']; ?>
+        @endforeach
 
-    @foreach ($costsForPL as $costForPL)
-    <tr>
-        <td>{{ $costForPL->accountName }}</td>
-        <td><?= number_format($costForPL->accountAmount) . ' ( ' . round($costForPL->accountAmount / $cost, 4) * 100 . '% )'; ?></td>
-    </tr>
-    @endforeach
+        @foreach ($costsForPL as $costForPL)
+        <tr>
+            <td>{{ $costForPL['accountName'] }}</td>
+            <td><?= number_format($costForPL['accountAmount']) . ' ( ' . round($costForPL['accountAmount'] / $cost, 4) * 100 . '% )'; ?></td>
+        </tr>
+        @endforeach
 
-    <tr class="costamount">
-        <td>経費合計</td>
-        <td class="cost-amount"><?= number_format($cost); ?></td>
-    </tr>
-    <tr class="balance">
-        <td>差引貯蓄可能額</td>
-        <td><?= number_format($salaryForPL->netIncome - $cost); ?></td>
-    </tr>
+        <tr class="costamount">
+            <td>経費合計</td>
+            <td class="cost-amount"><?= number_format($cost); ?></td>
+        </tr>
+        <tr class="balance">
+            <td>差引貯蓄可能額</td>
+            <td><?= number_format($salaryForPL->netIncome - $cost); ?></td>
+        </tr>
     @endif
 
     <!-- 稼働時間 -->
