@@ -172,11 +172,14 @@ Route::post('incomeedit/incomeeditdone', 'IncomeController@incomeEditExcute');
 * 個人PL出力関係のルーティング
 */
 
-// 選択された年月に基づきPLを参照する
+// 選択された年月に基づきPLを参照する　単月
 Route::post('outputpl/referencepl', 'OutputPLController@referencePL');
 
-// 選択された年月に基づきPLを参照する
+// 選択された年月に基づきPLを参照する　複数月
 Route::post('outputpl/referencepls', 'OutputPLController@referencePLs');
+
+// 選択された年月に基づきPLを参照する　四半期
+Route::post('/outputpl/referencequarterpl', 'OutputPLController@referenceQuarterPLs');
 
 
 /*
@@ -184,7 +187,9 @@ Route::post('outputpl/referencepls', 'OutputPLController@referencePLs');
 */
 
 // 稼働時間登録ページへのルーティング
-Route::get('/workinghours/workinghoursrec', function () { return view('workingHours/workingHoursRec'); });
+Route::get('/workinghours/workinghoursrec', function () {
+    return view('workingHours/workingHoursRec');
+});
 
 // 稼働時間登録処理のルーティング
 Route::post('/workinghours/workinghoursrec', 'WorkingHoursController@workingHoursRecord');
@@ -215,6 +220,9 @@ Route::get('outputpl/selectyearmonthpl', 'SelectYearMonthController@yearMonthSel
 // PL出力(複数月分)
 Route::get('outputpl/selectyearmonthpls', 'SelectYearMonthController@yearMonthSelectorForPls');
 
+// PL出力(複数月分)
+Route::get('outputpl/selectyearmonthquarterpl', 'SelectYearMonthController@yearMonthSelectorForQuarterPl');
+
 // 科目別の経費計上実績の参照
 Route::get('/costaccountcontent/selectyearmonthcostaccount', 'SelectYearMonthController@yearMonthSelectorForBeforeFilter');
 
@@ -244,8 +252,10 @@ Route::get('/costgraph/selectyearmonthlinegraphdailycosts', 'SelectYearMonthCont
 
 // 折れ線グラフ　過去60日以上の計上実績
 Route::get('/costgraph/selectyearmonthlinegraphpastcosts', function () {
-        return view('selectYearMonth.selectYearMonth', ['title' => '過去60日以上の経費計上実績の参照', 'h2' => '過去60日以上の経費計上実績の参照', 
-    'action' => '/costgraph/outputlinegraphdailycostpast', 'inputVal' => '指定した条件に基づいて折れ線グラフを参照する']);
+    return view('selectYearMonth.selectYearMonth', [
+        'title' => '過去60日以上の経費計上実績の参照', 'h2' => '過去60日以上の経費計上実績の参照',
+        'action' => '/costgraph/outputlinegraphdailycostpast', 'inputVal' => '指定した条件に基づいて折れ線グラフを参照する'
+    ]);
 });
 
 // 月別科目別の経費計上推移
