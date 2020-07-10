@@ -176,7 +176,7 @@ Route::post('incomeedit/incomeeditdone', 'IncomeController@incomeEditExcute');
 Route::post('outputpl/referencepl', 'OutputPLController@referencePL');
 
 // 選択された年月に基づきPLを参照する　複数月
-Route::post('outputpl/referencepls', 'OutputPLController@referencePLs');
+Route::post('outputpl/referencepls', 'OutputPLController@referencePL');
 
 // 選択された年月に基づきPLを参照する　四半期
 Route::post('/outputpl/referencequarterpl', 'OutputPLController@referenceQuarterPLs');
