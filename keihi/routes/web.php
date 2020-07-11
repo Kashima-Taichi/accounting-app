@@ -24,34 +24,39 @@ Route::get('/', function () {
 * 各区分のトップページへのルーティング
 */
 
-// 経費関係のメニューへ飛ばす
+// 経費関係のメニューへ遷移
 Route::get('/tops/costtop', function () {
     return view('tops/costTop');
 });
 
-// 時間関係のメニューへ飛ばす
+// 時間関係のメニューへ遷移
 Route::get('/tops/hourtop', function () {
     return view('tops/hourTop');
 });
 
-// 所得関係のメニューへ飛ばす
+// 所得関係のメニューへ遷移
 Route::get('/tops/incometop', function () {
     return view('tops/incomeTop');
 });
 
-// グラフ参照関係のメニューへ飛ばす
-Route::get('/tops/graphTop', function () {
+// グラフ参照関係のメニューへ遷移
+Route::get('/tops/graphtop', function () {
     return view('tops/graphTop');
 });
 
-// 特殊機能のメニューへ飛ばす
+// pl参照関係のメニューへ遷移
+Route::get('/tops/pltop', function () {
+    return view('tops/plTop');
+});
+
+// 特殊機能のメニューへ遷移
 Route::get('/tops/specialtop', function () {
     return view('tops/specialTop');
 });
 
 // 科目設定関係のメニューへ遷移させる
 Route::get('/tops/settingstop', function () {
-    return view('tops/settingstop');
+    return view('tops/settingsTop');
 });
 
 
