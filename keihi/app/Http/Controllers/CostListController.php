@@ -138,4 +138,30 @@ class CostListController extends Controller
 
         return view('costList.costCalendar', ['year' => $request->year, 'month' => $request->month, 'calendarData' => $calendarData]);
     }
+
+    // 5日ごとの経費計上実績を参照する
+    public function getCostAmountPerDays() {
+        // 年月を取得
+        $yearMonths = Cost::distinct()->select('year', 'month')->get();
+
+        // SQLでデータ取得時する際の日付のレンジを設定
+        $daysRange = [
+            1 => 5,
+            2 => 10,
+            3 => 15,
+            4 => 20,
+            5 => 25,
+        ];
+
+        // コンテンツ用のデータを作成
+        $costs = [];
+        foreach ($yearMonths as $yearMonth) {
+            for ($i = 1; $i <= 5; $i++) { 
+                $costs[$yearMonth->year . $yearMonth->month][$i] = Cost::whereRaw('year = ? and month = ?', [$yearMonth->year, $yearMonth->month])->whereBetween('day', [1, $daysRange[$i]])->sum('price');
+            }
+            $costs[$yearMonth->year . $yearMonth->month][$i] = Cost::whereRaw('year = ? and month = ?', [$yearMonth->year, $yearMonth->month])->sum('price');
+        }
+
+        return view('costList.costPerdays', ['costs' => $costs]);
+    }
 }

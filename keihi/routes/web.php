@@ -98,6 +98,8 @@ Route::post('/costlist/toptencostslist', 'CostListController@getTopTenCosts');
 // カレンダー参照機能
 Route::post('costlist/getcalender', 'CostListController@getCalendar');
 
+// 5日ごとの経費計上合計金額を参照する機能
+Route::get('costlist/getperdays', 'CostListController@getCostAmountPerDays');
 
 /*
 * CSV出力関係のルーティング
