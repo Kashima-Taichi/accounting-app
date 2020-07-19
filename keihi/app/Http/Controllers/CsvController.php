@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Traits\Csv;
 use DB;
 
-class DemoController extends Controller {
+class CsvController extends Controller {
 
     // CSVファイルのエクスポート
     public function csv(Request $request) {

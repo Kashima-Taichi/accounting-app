@@ -110,7 +110,7 @@ Route::post('/costaccountcontent/costaccountcontent', 'CostListController@outPut
 */
 
 // 年月選択ページで年月を選択後に、CSVファイルの書き込みを実行する
-Route::post('/costcsv/writecsv', 'DemoController@csv');
+Route::post('/costcsv/writecsv', 'CsvController@csv');
 
 /*
 * グラフ出力関係のルーティング
