@@ -8,9 +8,9 @@ class ConfigController extends Controller
 {
     // DBのダンプをする方法
     public function dumpDatabase() {
-        $dataBase = env('DB_DATABASE', 'SAISAN');
-        $userName = env('DB_USERNAME', 'TAICHI');
-        $passWord = env('DB_PASSWORD', 'secret');
+        $dataBase = env('DB_DATABASE');
+        $userName = env('DB_USERNAME');
+        $passWord = env('DB_PASSWORD');
         $hostName = 'localhost';
         $execDir = '/usr/bin/mysqldump';
         $destinationDir = '/var/lib/mysql/' . date('Y-m-d') . 'dump.sql';
