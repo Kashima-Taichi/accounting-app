@@ -101,6 +101,10 @@ Route::post('costlist/getcalender', 'CostListController@getCalendar');
 // 5日ごとの経費計上合計金額を参照する機能
 Route::get('costlist/getperdays', 'CostListController@getCostAmountPerDays');
 
+// 科目別の経費明細の内容を出力
+Route::post('/costaccountcontent/costaccountcontent', 'CostListController@outPutAccountContent');
+
+
 /*
 * CSV出力関係のルーティング
 */
@@ -138,13 +142,6 @@ Route::get('incomegraph', 'GraphController@createLineGraphIncome');
 
 // 稼働時間の計上推移を出力する
 Route::get('hoursgraph', 'GraphController@createLineGraphHours');
-
-/*
-* 年別月別科目別経費明細のルーティング
-*/
-
-// 科目別の経費明細の内容を出力
-Route::post('/costaccountcontent/costaccountcontent', 'CostAccountContentController@outPutAccountContent');
 
 
 /*
