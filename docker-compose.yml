@@ -3,7 +3,8 @@ services:
 
   app: 
     build: 
-      context: ./settings/php
+      context: .
+      dockerfile: /settings/php/Dockerfile
       args: 
         - TZ=${TZ}
     container_name: local_php
