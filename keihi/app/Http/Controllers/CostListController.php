@@ -13,13 +13,8 @@ class CostListController extends Controller
 {
     // 選択された年と月をもとに経費明細を参照する model
     public function getCostList(Request $request) {
-        if ($request->day === 'select') {
-            $costLists = Cost::whereRaw('year = ? and month = ?', array($request->year, $request->month))->get();
-            $costAmounts = Cost::whereRaw('year = ? and month = ?', array($request->year, $request->month))->sum('price');
-        } else {
-            $costLists = Cost::whereRaw('year = ? and month = ? and day = ?', array($request->year, $request->month, $request->day))->get();
-            $costAmounts = Cost::whereRaw('year = ? and month = ? and day = ?', array($request->year, $request->month, $request->day))->sum('price'); 
-        }
+        $costLists = Cost::getCostData($request->year, $request->month, $request->day);
+        $costAmounts = Cost::getCostAmountData($request->year, $request->month, $request->day);
         return view('costList.costList', 
         ['costLists' => $costLists, 'selectedYear' => $request->year, 
         'selectedMonth' => $request->month, 'selectedDay' => $request->day,
@@ -159,7 +154,7 @@ class CostListController extends Controller
             for ($i = 1; $i <= 5; $i++) { 
                 $costs[$yearMonth->year . $yearMonth->month][$i] = Cost::whereRaw('year = ? and month = ?', [$yearMonth->year, $yearMonth->month])->whereBetween('day', [1, $daysRange[$i]])->sum('price');
             }
-            $costs[$yearMonth->year . $yearMonth->month][$i] = Cost::whereRaw('year = ? and month = ?', [$yearMonth->year, $yearMonth->month])->sum('price');
+            $costs[$yearMonth->year . $yearMonth->month][$i] = Cost::getCostAmountData($yearMonth->year, $yearMonth->month);
         }
 
         return view('costList.costPerdays', ['costs' => $costs]);
