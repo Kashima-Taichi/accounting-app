@@ -21,6 +21,7 @@
             </div>
             <div class="links">
                 <a href="<?php echo url('costcsv/selectyearmonthcsv'); ?>" id="link">経費のCSVを出力する</a>
+                <a href="<?php echo url('plcsv/selectyearmonthcsv'); ?>" id="link">PLのCSVを出力する</a>
                 <a href="<?php echo url('costtrash/refconsttrash'); ?>" id="link">経費のゴミ箱</a>
                 <a href="<?php echo url('/'); ?>" id="link">アプリのトップページへ戻る</a>
             </div>

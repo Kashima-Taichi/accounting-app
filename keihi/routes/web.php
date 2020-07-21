@@ -110,7 +110,10 @@ Route::post('/costaccountcontent/costaccountcontent', 'CostListController@outPut
 */
 
 // 年月選択ページで年月を選択後に、CSVファイルの書き込みを実行する
-Route::post('/costcsv/writecsv', 'CsvController@csv');
+Route::post('/costcsv/writecsv', 'CsvController@CostCsv');
+
+// 年月選択ページで年月を選択後に、CSVファイルの書き込みを実行する
+Route::post('/plcsv/writecsv', 'CsvController@plCsv');
 
 /*
 * グラフ出力関係のルーティング
@@ -230,8 +233,11 @@ Route::get('outputpl/selectyearmonthquarterpl', 'SelectYearMonthController@yearM
 // 科目別の経費計上実績の参照
 Route::get('/costaccountcontent/selectyearmonthcostaccount', 'SelectYearMonthController@yearMonthSelectorForBeforeFilter');
 
-// CSV出力時
-Route::get('/costcsv/selectyearmonthcsv', 'SelectYearMonthController@yearMonthSelectorForBeforewriteCsv');
+// CSV出力時 月別経費出力
+Route::get('/costcsv/selectyearmonthcsv', 'SelectYearMonthController@yearMonthSelectorForBeforewriteCostCsv');
+
+// CSV出力時 PL出力
+Route::get('/plcsv/selectyearmonthcsv', 'SelectYearMonthController@yearMonthSelectorForBeforewritePlCsv');
 
 // 経費計上実績の上位10位
 Route::get('/costlist/toptencosts', 'SelectYearMonthController@yearMonthSelectorForTopTen');

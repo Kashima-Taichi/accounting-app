@@ -46,13 +46,24 @@ class SelectYearMonthController extends Controller
     }
 
     // CSV DB
-    public function yearMonthSelectorForBeforewriteCsv()
+    public function yearMonthSelectorForBeforewriteCostCsv()
     {
         $yearSelectors = Cost::groupBy('year')->get('year');
         $monthSelectors = Cost::groupBy('month')->get('month');
         return view('selectYearMonth.selectYearMonth', [
             'yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors, 'title' => '経費明細のCSV出力', 'h2' => 'CSVファイルの出力',
             'action' => '/costcsv/writecsv', 'inputVal' => '指定した年月の経費計上データのCSVファイルを取得する'
+        ]);
+    }
+
+    // CSV DB
+    public function yearMonthSelectorForBeforewritePlCsv()
+    {
+        $yearSelectors = Cost::groupBy('year')->get('year');
+        $monthSelectors = Cost::groupBy('month')->get('month');
+        return view('selectYearMonth.selectYearMonth', [
+            'yearSelectors' => $yearSelectors, 'monthSelectors' => $monthSelectors, 'title' => 'PL明細のCSV出力', 'h2' => 'CSVファイルの出力',
+            'action' => '/plcsv/writecsv', 'inputVal' => '指定した年月のPL明細のCSVファイルを取得する'
         ]);
     }
 
