@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
+    @include('components.header', ['title' => '個人PL参照(四半期推移)'])
     <link rel="stylesheet" href="{{ asset('/style/refpl.css') }}">
-    <title>個人PL参照(四半期推移)</title>
 </head>
 <body>
     <h2>{{ $param['year'] }}年　{{ $quarterMessage }}</h2>

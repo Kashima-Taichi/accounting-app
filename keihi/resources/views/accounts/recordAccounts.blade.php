@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
-    <title>勘定科目の登録</title>
+@include('components.header', ['title' => '勘定科目の登録'])
 </head>
 <body>
     <div class="recform">

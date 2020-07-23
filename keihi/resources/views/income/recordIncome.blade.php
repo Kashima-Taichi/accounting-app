@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('components.header', ['title' => '所得の計上'])
     <link rel="stylesheet" href="{{ asset('/style/incomeRecord.css') }}">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
     @include('components.CallVueJsCDN')
-    <title>所得の計上</title>
 </head>
 <body>
     <div class="recform">

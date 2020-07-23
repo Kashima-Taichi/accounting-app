@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/Chart.css') }}">
-    <title>手取り金額の計上推移</title>
+    @include('components.chartHeader', ['title' => '手取り金額の計上推移'])
 </head>
 <body>
     @include('components.CallChartJs')

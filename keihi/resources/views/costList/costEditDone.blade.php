@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
-    <title>経費の修正が完了しました</title>
+    @include('components.header', ['title' => '経費の修正が完了しました'])
 </head>
 <body>
 <h2>id:{{ $editedRecord->id }}の経費計上明細が修正できました</h2>
-    <table border="1" style="border-collapse: collapse">
+    <table border="1" style="border-collapse: collapse" align="center">
     <tr>
     <th class="id">id</th>
     <th class="accName">科目名称</th>

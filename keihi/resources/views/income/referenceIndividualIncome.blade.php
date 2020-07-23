@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('components.header', ['title' => '所得の参照'])
     <link rel="stylesheet" href="{{ asset('/style/incomeDone.css') }}">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
-    <title>所得の計上</title>
 </head>
 <body>
 <h2>{{ $IndivudualSalary->year }}年{{ $IndivudualSalary->month }}月の計上された所得所得</h2>
@@ -62,8 +59,8 @@
 </table>
 <br>
 <div class="edit-or-del">
-    <button><a href="{{ action('IncomeController@IncomeDelete', $IndivudualSalary->id) }}">この経費明細を削除する(※このボタンを押すと現在ご覧の経費明細は削除されます)</a></button>
-    <button><a href="{{ action('IncomeController@setRecordedSalary', $IndivudualSalary->id) }}">この経費明細を修正する</a></button>
+    <button><a href="{{ action('IncomeController@IncomeDelete', $IndivudualSalary->id) }}">この所得明細を削除する(※このボタンを押すと現在ご覧の所得明細は削除されます)</a></button>
+    <button><a href="{{ action('IncomeController@setRecordedSalary', $IndivudualSalary->id) }}">この所得明細を修正する</a></button>
 </div>
 <br>
 @include('components.linkToTop')

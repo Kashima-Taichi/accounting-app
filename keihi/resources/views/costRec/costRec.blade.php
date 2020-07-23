@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/costrec.css') }}">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
+    @include('components.costrecHeader', ['title' => '経費の計上'])
     @include('components.CallVueJsCDN')
-    <title>経費の計上</title>
 </head>
 <body>
     <div class="recform">

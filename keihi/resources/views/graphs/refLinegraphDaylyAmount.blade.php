@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/Chart.css') }}">
-    <title>{{ $param['year'] }}年{{ $param['month'] }}月 日別の経費計上合計金額のグラフ</title>
+    @include('components.chartHeader', ['title' => $param['year'] . '年' . $param['month'] . '月　日別の経費計上合計金額のグラフ'])
 </head>
 <body>
     @include('components.CallChartJs')

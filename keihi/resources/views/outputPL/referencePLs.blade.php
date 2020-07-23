@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
+    @include('components.header', ['title' => '個人PL参照(複数月)'])
     <link rel="stylesheet" href="{{ asset('/style/refpl.css') }}">
-    <title>個人PL参照(複数月)</title>
 </head>
 <body>
     <h2>{{ $param['year'] }}年{{ $param['month']-1 }}月から{{ $param['month'] }}月度個人PL</h2>

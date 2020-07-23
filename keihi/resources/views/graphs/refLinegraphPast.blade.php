@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/Chart.css') }}">
-    <title>過去{{ $request }}日間の経費計上折れ線グラフの参照</title>
+    @include('components.chartHeader', ['title' => '過去' . $request . '日間の経費計上折れ線グラフの参照'])
 </head>
 <body>
     @include('components.CallChartJs')

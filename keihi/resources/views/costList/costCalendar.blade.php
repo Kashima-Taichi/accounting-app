@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
+    @include('components.header', ['title' => '経費計上カレンダーの参照'])
     <link rel="stylesheet" href="{{ asset('/style/calendar.css') }}">
-    <title>経費計上カレンダーの参照</title>
 </head>
 <body>
     <h2>{{ $year }}年{{ $month }}月経費計上カレンダー</h2>

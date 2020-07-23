@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/style/common.css') }}">
     @include('components.CallVueJsCDN')
-    <title>{{ $title }}</title>
+    @include('components.header', ['title' => $title])
 </head>
-
 <body>
     <div class="recform">
         <h2>{{ $h2 }}</h2>
