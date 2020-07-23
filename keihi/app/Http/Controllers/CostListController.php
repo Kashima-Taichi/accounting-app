@@ -164,7 +164,7 @@ class CostListController extends Controller
     public function outPutAccountContent(Request $request) {
         $extractedCosts = Cost::whereRaw('accountName = ? and year = ? and month = ?', array($request->account, $request->year, $request->month))->get();
         $extractedCostAmount = Cost::whereRaw('accountName = ? and year = ? and month = ?', array($request->account, $request->year, $request->month))->sum('price');
-        return view('costAccountContent.costAccountContent', 
+        return view('costList.costAccountContent', 
         ['extractedYear' => $request->year, 'extractedMonth' => $request->month, 'extractedAccountName' => $request->account, 'extractedCosts' => $extractedCosts, 'extractedCostAmount' => $extractedCostAmount]);
     }
 

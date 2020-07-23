@@ -30,7 +30,7 @@ class IncomeController extends Controller
         $formContents['yearMonth'] = $concatYearMonth;
         unset($formContents['_token']);
         $salary->fill($formContents)->save();
-        return view('/income/recordIncomeDone', ['recordedSalary' => $formContents]);
+        return view('income.recordIncomeDone', ['recordedSalary' => $formContents]);
     }
 
     // 計上された所得の参照コントローラー model
@@ -42,7 +42,7 @@ class IncomeController extends Controller
     // 個別の所得参照ページで選択された所得の情報を取得してviewに渡す model
     public function setRecordedSalary($id) {
         $selectedSalary = Salary::where('id', $id)->first();
-        return view('incomeEdit.incomeEdit', ['selectedSalary' => $selectedSalary]);
+        return view('income.incomeEdit', ['selectedSalary' => $selectedSalary]);
     }
 
     // 全ての計上された所得の明細から個別の所得を取得しviewに渡す model
@@ -65,6 +65,6 @@ class IncomeController extends Controller
         $editSalary = $request->all();
         unset($editSalary['_token']);
         $toBeEditedData->fill($editSalary)->save();
-        return view('incomeEdit/incomeEditDone');
+        return view('income.incomeEditDone');
     }
 }

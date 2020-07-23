@@ -283,7 +283,7 @@ Route::get('costlist/calender', 'SelectYearMonthController@yearMonthSelectorforC
 
 // 勘定科目登録画面へ遷移
 Route::get('/accounts/recordaccounts', function () {
-    return view('accounts/recordAccounts');
+    return view('config/recordAccounts');
 });
 
 // 勘定科目登録を完了させる

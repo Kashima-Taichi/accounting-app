@@ -18,11 +18,11 @@ class AccountController extends Controller
         // 送信
         unset($formContents['_token']);
         $account->fill($formContents)->save();
-        return view('accounts/recordAccounts', ['msg' => '正しく勘定科目の登録が行われました！続けて経費の計上を行うことが可能です。']);
+        return view('config/recordAccounts', ['msg' => '正しく勘定科目の登録が行われました！続けて経費の計上を行うことが可能です。']);
     }
 
     public function outputAccountsList() {
         $accountsData = Account::paginate(13);
-        return view('accounts/refAccounts', ['accountsData' => $accountsData]);
+        return view('config/refAccounts', ['accountsData' => $accountsData]);
     }
 }
