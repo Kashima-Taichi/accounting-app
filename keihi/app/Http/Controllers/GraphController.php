@@ -19,20 +19,20 @@ class GraphController extends Controller
             $sort[$key] = $value->accountAmount;
         }
         array_multisort($sort, SORT_DESC, $piechartData);
-        return view('costGraph.refPiechart', ['piechartData' => $piechartData, 'param' => $param]);
+        return view('graphs.refPiechart', ['piechartData' => $piechartData, 'param' => $param]);
     }
 
     // 過去60日間以上の経費計上実績を参照する DB
     public function createLineGraphPast(Request $request) {
         $lineGraphData = DB::select('SELECT date, sum(price) dayAmount FROM costs GROUP BY date ORDER BY date DESC LIMIT ?', [$request->pastDays]);
-        return view('costGraph.refLinegraphPast', ['lineGraphData' => $lineGraphData, 'request' => $request->pastDays]);
+        return view('graphs.refLinegraphPast', ['lineGraphData' => $lineGraphData, 'request' => $request->pastDays]);
     }
 
     // 単月の経費計上実績を参照する DB
     public function createLineGraph(Request $request) {
         $param = ['year' => $request->year, 'month' => $request->month];
         $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
-        return view('costGraph.refLinegraph', ['lineGraphData' => $lineGraphData, 'param' => $param]);
+        return view('graphs.refLinegraph', ['lineGraphData' => $lineGraphData, 'param' => $param]);
     }
 
     // 複数月の経費計上実績を参照する DB
@@ -40,14 +40,14 @@ class GraphController extends Controller
         $param = ['year' => $request->year, 'month' => $request->month];
         $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
         $lineGraphDataMinusOne = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month - 1 GROUP BY day', $param);
-        return view('costGraph.refLinegraphs', ['lineGraphData' => $lineGraphData, 'lineGraphDataMinusOne' => $lineGraphDataMinusOne,'param' => $param]);
+        return view('graphs.refLinegraphs', ['lineGraphData' => $lineGraphData, 'lineGraphDataMinusOne' => $lineGraphDataMinusOne,'param' => $param]);
     }
 
     // 科目別に計上された経費のデータを抽出する DB
     public function createLineGraphAccountMonth(Request $request) {
         $param = $request->account;
         $lineGraphData = DB::select('SELECT sum(price) as amount, concat(year, "/", month) as yearMonth FROM costs WHERE accountName = ? GROUP BY year, month', [$param]);
-        return view('costGraph.refLinegraphMonthAccount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
+        return view('graphs.refLinegraphMonthAccount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
     }
 
     // 計上されて所得(手取り金額)を全て取得
@@ -57,7 +57,7 @@ class GraphController extends Controller
             $sort[$key] = $value->yearMonth;
         }
         array_multisort($sort, SORT_ASC, $incomeData);
-        return view('incomeGraph.refLineIncomeGraph', ['incomeData' => $incomeData]);
+        return view('graphs.refLineIncomeGraph', ['incomeData' => $incomeData]);
     }
 
     // 計上されて稼働時間を全て取得
@@ -67,7 +67,7 @@ class GraphController extends Controller
             $sort[$key] = $value->yearMonth;
         }
         array_multisort($sort, SORT_ASC, $hourData);
-        return view('workingHoursGraph.refHoursGraph', ['hourData' => $hourData]);
+        return view('graphs.refHoursGraph', ['hourData' => $hourData]);
     }
 
     // 日別の経費計上合計金額を参照する
@@ -79,7 +79,7 @@ class GraphController extends Controller
                 $lineGraphData[$key]->dayAmount = $lineGraphData[$key-1]->dayAmount + $lineGraphData[$key]->dayAmount;
             }
         }
-        return view('costGraph.refLinegraphDaylyAmount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
+        return view('graphs.refLinegraphDaylyAmount', ['lineGraphData' => $lineGraphData, 'param' => $param]);
     }
 
     // 日別の経費計上合計金額を参照する
@@ -99,7 +99,7 @@ class GraphController extends Controller
                 $lineGraphDataMinusOne[$key]->dayAmount = $lineGraphDataMinusOne[$key-1]->dayAmount + $lineGraphDataMinusOne[$key]->dayAmount;
             }
         }
-        return view('costGraph.refLinegraphDaylyAmounts', ['lineGraphData' => $lineGraphData, 'lineGraphDataMinusOne' => $lineGraphDataMinusOne, 'param' => $param]);
+        return view('graphs.refLinegraphDaylyAmounts', ['lineGraphData' => $lineGraphData, 'lineGraphDataMinusOne' => $lineGraphDataMinusOne, 'param' => $param]);
     }
 }
 
