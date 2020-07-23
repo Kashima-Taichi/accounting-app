@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/style/Chart.css') }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
     <title>{{ $param['year'] }}年{{ $param['month'] }}月 日別の経費計上合計金額のグラフ</title>
 </head>
 <body>
+    @include('components.CallChartJs')
     <canvas id="myLineGraph"></canvas>
 
     <script type="text/javascript">

@@ -7,8 +7,8 @@
     <title>{{ $param['year'] }}年{{ $param['month'] }}月経費計上円グラフの参照</title>
 </head>
 <body>
+    @include('components.CallChartJs')
     <canvas id="myPieChart"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
 
     <script>
         // コントローラーから取得した配列データのjs変換
