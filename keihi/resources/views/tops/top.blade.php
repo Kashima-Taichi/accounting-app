@@ -12,6 +12,7 @@
         <div class="links">
             <a href="<?php echo url('tops/costtop'); ?>" id="link">経費関係のメニューへ</a>
             <a href="<?php echo url('tops/incometop'); ?>" id="link">所得関係のメニューへ</a>
+            <a href="<?php echo url('tops/bonusestop'); ?>" id="link">賞与関係のメニューへ</a>
             <a href="<?php echo url('tops/hourtop'); ?>" id="link">稼働時間関係のメニュー</a>
             <a href="<?php echo url('tops/graphtop'); ?>" id="link">グラフ参照関係のメニュー</a>
             <a href="<?php echo url('tops/pltop'); ?>" id="link">PL参照関係のメニュー</a>

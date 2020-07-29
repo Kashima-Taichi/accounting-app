@@ -59,6 +59,11 @@ Route::get('/tops/settingstop', function () {
     return view('tops/settingsTop');
 });
 
+// 賞与関係のメニューへ遷移させる
+Route::get('/tops/bonusestop', function () {
+    return view('tops/bonusTop');
+});
+
 
 /*
 * 経費計上関係のルーティング
@@ -174,6 +179,17 @@ Route::get('income/incomeedit/{id}', 'IncomeController@setRecordedSalary');
 // 入力された金額を下に所得の修正計上を行う
 Route::post('incomeedit/incomeeditdone', 'IncomeController@incomeEditExcute');
 
+/*
+* 賞与登録関係のルーティング
+*/
+
+// 経費計上のページへ遷移する
+Route::get('bonus/recbonus', function () {
+    return view('bonus/recordBonus');
+});
+
+// 経費計上を完了させる
+Route::post('/bonus/recorddone', 'BonusController@record');
 
 /*
 * 個人PL出力関係のルーティング
@@ -218,7 +234,7 @@ Route::post('/workinghours/workinghourseditdone', 'WorkingHoursController@workin
 
 
 /*
- * 年月選択関係のルーティング 
+ * 年月選択関係のルーティング
 */
 
 // PL出力
@@ -276,7 +292,7 @@ Route::get('costlist/calender', 'SelectYearMonthController@yearMonthSelectorforC
 
 
 /*
- * 設定関係のルーティング 
+ * 設定関係のルーティング
 */
 
 /* 勘定科目の設定 */
@@ -297,7 +313,7 @@ Route::get('/dump', 'ConfigController@dumpDatabase');
 
 
 /*
- * ゴミ箱関係のルーティング 
+ * ゴミ箱関係のルーティング
 */
 
 // ゴミ箱参照ページへのルーティング
