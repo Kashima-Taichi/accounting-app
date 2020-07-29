@@ -16,4 +16,10 @@ class BonusController extends Controller
         $bonus->fill($formContents)->save();
         return view('bonus.recordBonusDone', ['recordedBonus' => $formContents]);
     }
+
+    // 計上された賞与の参照
+    public function getListBonusData() {
+        $bonusData = Bonus::all();
+        return view('bonus.bonusReference', ['bonusData' => $bonusData]);
+    }
 }

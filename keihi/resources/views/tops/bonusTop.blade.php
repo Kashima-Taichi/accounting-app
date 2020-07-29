@@ -11,6 +11,7 @@
             </div>
             <div class="links">
                 <a href="<?php echo url('bonus/recbonus'); ?>" id="link">賞与の計上を行う</a>
+                <a href="<?php echo url('bonus/referencebonus'); ?>" id="link">計上された賞与の参照を行う</a>
             </div>
         </div>
     </div>

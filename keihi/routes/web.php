@@ -180,7 +180,7 @@ Route::get('income/incomeedit/{id}', 'IncomeController@setRecordedSalary');
 Route::post('incomeedit/incomeeditdone', 'IncomeController@incomeEditExcute');
 
 /*
-* 賞与登録関係のルーティング
+* 賞与関係のルーティング
 */
 
 // 経費計上のページへ遷移する
@@ -190,6 +190,10 @@ Route::get('bonus/recbonus', function () {
 
 // 経費計上を完了させる
 Route::post('/bonus/recorddone', 'BonusController@record');
+
+// 計上した全ての所得を参照する
+Route::get('/bonus/referencebonus', 'BonusController@getListBonusData');
+
 
 /*
 * 個人PL出力関係のルーティング
