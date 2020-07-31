@@ -7,6 +7,7 @@ use App\Models\Salary;
 use App\Models\Cost;
 use App\Models\Hour;
 use App\Models\Account;
+use App\Models\Bonus;
 use DB;
 use Log;
 
@@ -19,9 +20,10 @@ class OutputPLController extends Controller
             $costsForPL = $this->makeCostForPl($param);
             $salaryForPL = Salary::whereRaw('year = ? and month = ?', array($param['year'], $param['month']))->first();
             $hoursForPL = Hour::whereRaw('year = ? and month = ?', array($param['year'], $param['month']))->first();
+            $bonusForPL = Bonus::whereRaw('year = ? and month = ?', array($param['year'], $param['month']))->first();
         // PL複数月参照の場合
         if (strpos(url()->current(), 'referencepls') === false) {
-            return view('outputPL.referencePL', ['param' => $param, 'costsForPL' => $costsForPL, 'salaryForPL' => $salaryForPL, 'hoursForPL' => $hoursForPL]);
+            return view('outputPL.referencePL', ['param' => $param, 'costsForPL' => $costsForPL, 'salaryForPL' => $salaryForPL, 'hoursForPL' => $hoursForPL, 'bonusForPL' => $bonusForPL]);
         } else {
             // 選択した月のマイナス1の月のPLの情報を取得
             $paramMinus = ['year' => strval($request->year), 'month' => strval($request->month - 1)];
@@ -64,7 +66,7 @@ class OutputPLController extends Controller
         } else {
             $costData = DB::select('SELECT accountName, sum(price) accountAmount FROM costs WHERE year = :year AND month = :month GROUP BY accountName', $param);
         }
-        
+
         // 科目マスタと実績データの用意
         $costsChild = [];
         $accountMst = [];

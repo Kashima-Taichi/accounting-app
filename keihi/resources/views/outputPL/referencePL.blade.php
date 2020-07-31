@@ -20,6 +20,14 @@
     </tr>
     @endif
 
+    <!-- 賞与 -->
+    @if (!empty($bonusForPL) === true)
+    <tr class="netincome">
+        <td>手取賞与</td>
+        <td class="net-income"><?= number_format($bonusForPL->netIncome); ?></td>
+    </tr>
+    @endif
+
     <!-- 経費 -->
     @if (!empty($costsForPL) === true)
             <?php $cost = 0; ?>
@@ -40,7 +48,7 @@
         </tr>
         <tr class="balance">
             <td>差引貯蓄可能額</td>
-            <td><?= number_format($salaryForPL->netIncome - $cost); ?></td>
+            <td><?= number_format($salaryForPL->netIncome + $bonusForPL->netIncome - $cost); ?></td>
         </tr>
     @endif
 
